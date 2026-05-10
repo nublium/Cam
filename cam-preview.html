@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Aurelian Pride — Live Preview · cam · Lioden</title>
+<!-- === FONTS === -->
+<link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Cinzel:wght@400;500;600;700;900&family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Crimson+Pro:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   THE AURELIAN PRIDE — STANDALONE PREVIEW
+   Gothic & Gold Theme · For cam · Lioden #583285
+   By nub · Lioden Commissions · #166079
+   ============================================================ */
+* { box-sizing: border-box; }
+
+/* === PAGE BACKGROUND (mirrors the live den) === */
+body {
+    background: #0a0805 !important;
+    background-image:
+        radial-gradient(ellipse at 20% 30%, rgba(75, 60, 18, 0.32) 0%, transparent 55%),
+        radial-gradient(ellipse at 80% 70%, rgba(95, 75, 22, 0.22) 0%, transparent 55%),
+        radial-gradient(ellipse at 50% 0%, rgba(140, 110, 35, 0.10) 0%, transparent 45%),
+        radial-gradient(ellipse at 50% 100%, rgba(80, 60, 15, 0.12) 0%, transparent 45%) !important;
+    background-attachment: fixed !important;
+    color: #d4c8a8 !important;
+    font-family: "Cormorant Garamond", "Georgia", serif !important;
+    font-size: 14px !important;
+    line-height: 1.65 !important;
+    margin: 0;
+    padding: 0;
+}
+
+/* === SIMULATED LIODEN MAIN CONTAINER === */
+div.container.main, .container.main {
+    background: rgba(15, 11, 6, 0.94) !important;
+    border: 1px solid rgba(201, 168, 73, 0.20) !important;
+    border-top: none !important;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.7), inset 0 0 90px rgba(0, 0, 0, 0.35) !important;
+    color: #d4c8a8 !important;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+/* === NAVBAR === */
+.navbar {
+    background: linear-gradient(180deg, #110d06 0%, #08060300 100%) !important;
+    border-bottom: 1px solid rgba(201, 168, 73, 0.32) !important;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.55) !important;
+    padding: 11px 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin: 0;
+}
+.navbar a {
+    color: #8a7a55 !important;
+    font-family: "Cinzel", serif !important;
+    text-transform: uppercase !important;
+    font-size: 11px !important;
+    letter-spacing: 1.5px !important;
+    transition: all 0.3s ease !important;
+    text-decoration: none;
+    padding: 8px 16px;
+    display: inline-block;
+}
+.navbar a:hover {
+    color: #e8cc6e !important;
+    text-shadow: 0 0 8px rgba(232, 204, 110, 0.45) !important;
+}
+
+/* === BREADCRUMB === */
+.breadcrumb {
+    background: rgba(8, 6, 3, 0.6) !important;
+    border-bottom: 1px solid rgba(201, 168, 73, 0.18) !important;
+    color: #8a7a55 !important;
+    font-family: "Cinzel", serif !important;
+    font-size: 11px !important;
+    letter-spacing: 0.5px !important;
+    padding: 8px 18px;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    gap: 6px;
+}
+.breadcrumb a { color: #c9a849 !important; text-decoration: none; }
+.breadcrumb a:hover { color: #e8cc6e !important; }
+
+/* === SIDEBAR PANELS === */
+.panel {
+    background: rgba(18, 13, 7, 0.88) !important;
+    border: 1px solid rgba(201, 168, 73, 0.22) !important;
+    border-radius: 0 !important;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.4), inset 0 0 30px rgba(0, 0, 0, 0.25) !important;
+    color: #d4c8a8 !important;
+    margin-bottom: 12px;
+    overflow: hidden;
+}
+.panel-heading {
+    background: linear-gradient(180deg, rgba(74, 61, 16, 0.55) 0%, rgba(34, 26, 8, 0.75) 100%) !important;
+    color: #e8cc6e !important;
+    font-family: "Cinzel", serif !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1.5px !important;
+    font-size: 12px !important;
+    border-bottom: 1px solid rgba(201, 168, 73, 0.32) !important;
+    padding: 10px 14px;
+    text-align: center;
+}
+.panel-body {
+    background: transparent !important;
+    color: #d4c8a8 !important;
+    padding: 14px 16px;
+}
+
+/* === HEADINGS === */
+h1, h2, h3, h4, h5, h6 {
+    color: #e8cc6e !important;
+    font-family: "Cinzel Decorative", "Cinzel", serif !important;
+    font-weight: 700 !important;
+    letter-spacing: 2px !important;
+    text-transform: uppercase !important;
+    margin: 0 0 8px;
+}
+
+/* === LINKS === */
+a:link, a { color: #c9a849 !important; text-decoration: none !important; transition: all 0.3s ease !important; }
+a:visited { color: #8b7320 !important; }
+a:hover { color: #e8cc6e !important; text-shadow: 0 0 6px rgba(232, 204, 110, 0.45) !important; }
+
+/* === PROGRESS BARS === */
+.progress {
+    background-color: rgba(8, 6, 3, 0.85) !important;
+    border: 1px solid rgba(201, 168, 73, 0.22) !important;
+    border-radius: 0 !important;
+    box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.55) !important;
+    height: 18px !important;
+    overflow: hidden;
+    margin-bottom: 6px;
+}
+.progress-bar {
+    background: linear-gradient(90deg, #4a3d10 0%, #8b7320 50%, #c9a849 100%) !important;
+    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.35), 0 0 8px rgba(201, 168, 73, 0.30) !important;
+    border-radius: 0 !important;
+    height: 100%;
+    color: #1a1408;
+    font-size: 10px;
+    line-height: 18px;
+    text-align: center;
+    font-family: "Cinzel", serif;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+/* === BUTTONS === */
+.btn {
+    background: linear-gradient(180deg, #2a210a 0%, #15100400 100%) !important;
+    border: 1px solid rgba(201, 168, 73, 0.42) !important;
+    border-radius: 0 !important;
+    color: #e8cc6e !important;
+    font-family: "Cinzel", serif !important;
+    text-transform: uppercase !important;
+    font-size: 11px !important;
+    letter-spacing: 1.2px !important;
+    padding: 7px 16px;
+    cursor: pointer;
+    transition: all 0.3s ease !important;
+    display: inline-block;
+    text-decoration: none;
+}
+.btn:hover {
+    background: linear-gradient(180deg, #4a3d10 0%, #2a210a 100%) !important;
+    border-color: rgba(232, 204, 110, 0.60) !important;
+    color: #f5deaa !important;
+    box-shadow: 0 0 12px rgba(201, 168, 73, 0.32) !important;
+}
+
+/* === INPUTS === */
+input[type="text"], textarea, .form-control {
+    background: rgba(8, 6, 3, 0.85) !important;
+    border: 1px solid rgba(201, 168, 73, 0.25) !important;
+    border-radius: 0 !important;
+    color: #d4c8a8 !important;
+    font-family: "Cormorant Garamond", serif !important;
+    font-size: 14px;
+    padding: 7px 11px;
+    width: 100%;
+}
+input:focus, textarea:focus {
+    border-color: rgba(232, 204, 110, 0.55) !important;
+    box-shadow: 0 0 10px rgba(201, 168, 73, 0.32) !important;
+    outline: none !important;
+}
+
+/* === CHAT ROWS === */
+.chat_light { background: rgba(18, 13, 7, 0.55) !important; border-bottom: 1px solid rgba(201, 168, 73, 0.10); color: #cdc0a0 !important; padding: 9px 14px; }
+.chat_dark { background: rgba(15, 11, 6, 0.75) !important; border-bottom: 1px solid rgba(201, 168, 73, 0.10); color: #cdc0a0 !important; padding: 9px 14px; }
+
+/* === WELL === */
+.well {
+    background: rgba(15, 11, 6, 0.85) !important;
+    border: 1px solid rgba(201, 168, 73, 0.20) !important;
+    border-radius: 0 !important;
+    color: #d4c8a8 !important;
+    box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.4) !important;
+    padding: 12px;
+    margin-bottom: 12px;
+    text-align: center;
+}
+
+/* === SCROLLBARS === */
+::-webkit-scrollbar { width: 8px !important; height: 8px !important; }
+::-webkit-scrollbar-track { background: #0a0805 !important; }
+::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #4a3d10 0%, #1a1408 100%) !important; border: 1px solid rgba(201, 168, 73, 0.32) !important; }
+::-webkit-scrollbar-thumb:hover { background: linear-gradient(180deg, #8b7320 0%, #4a3d10 100%) !important; }
+
+/* ============================================================
+   TERRITORY DESCRIPTION — THE AURELIAN PRIDE
+   ============================================================ */
+.aur-territory {
+    width: 700px;
+    margin: 12px auto;
+    font-family: "Cormorant Garamond", "Georgia", serif;
+    color: #d4c8a8;
+    line-height: 1.7;
+}
+
+.aur-title {
+    text-align: center;
+    padding: 20px 10px 4px;
+    margin: 0;
+    font-family: "UnifrakturMaguntia", "Cinzel Decorative", serif;
+    font-size: 64px;
+    font-weight: 400;
+    color: #e8cc6e;
+    letter-spacing: 2px;
+    line-height: 1;
+    text-shadow:
+        0 0 22px rgba(201, 168, 73, 0.45),
+        0 0 50px rgba(201, 168, 73, 0.18),
+        0 2px 4px rgba(0, 0, 0, 0.85);
+}
+
+.aur-subtitle {
+    text-align: center;
+    font-family: "Cormorant Garamond", serif;
+    font-style: italic;
+    font-size: 14px;
+    color: #a89260;
+    letter-spacing: 1.5px;
+    margin: 6px 30px 6px;
+    line-height: 1.4;
+}
+
+.aur-divider {
+    width: 55%;
+    margin: 14px auto;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, rgba(201, 168, 73, 0.25) 20%, #c9a849 50%, rgba(201, 168, 73, 0.25) 80%, transparent 100%);
+    border: none;
+    position: relative;
+}
+.aur-divider::before {
+    content: "❖";
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #c9a849;
+    font-size: 11px;
+    background: #15110a;
+    padding: 0 8px;
+}
+
+.aur-divider-full {
+    width: 100%;
+    margin: 18px 0 14px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border: none;
+}
+.aur-divider-full::before, .aur-divider-full::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(201, 168, 73, 0.35), rgba(232, 204, 110, 0.45), rgba(201, 168, 73, 0.35), transparent);
+}
+.aur-divider-mark {
+    font-family: "Cinzel", serif;
+    font-size: 10px;
+    color: #c9a849;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    white-space: nowrap;
+    text-shadow: 0 0 6px rgba(201, 168, 73, 0.35);
+}
+
+/* === Avatar (rectangular, NOT round) === */
+.aur-avatar-wrap { text-align: center; margin: 16px 0 8px; }
+.aur-avatar-frame {
+    display: inline-block;
+    position: relative;
+    padding: 8px;
+    background: linear-gradient(135deg, rgba(201, 168, 73, 0.18) 0%, rgba(74, 61, 16, 0.45) 100%);
+    border: 1px solid rgba(201, 168, 73, 0.45);
+    box-shadow:
+        0 0 0 1px rgba(8, 6, 3, 0.95),
+        0 0 0 2px rgba(232, 204, 110, 0.20),
+        0 4px 18px rgba(0, 0, 0, 0.6),
+        inset 0 0 18px rgba(232, 204, 110, 0.08);
+    transition: all 0.4s ease;
+}
+.aur-avatar-frame::before, .aur-avatar-frame::after {
+    content: "";
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border: 1px solid #c9a849;
+    pointer-events: none;
+}
+.aur-avatar-frame::before { top: -2px; left: -2px; border-right: none; border-bottom: none; }
+.aur-avatar-frame::after { top: -2px; right: -2px; border-left: none; border-bottom: none; }
+.aur-avatar {
+    width: 110px;
+    height: 110px;
+    object-fit: cover;
+    display: block;
+    border-radius: 0 !important;
+    border: 1px solid rgba(74, 61, 16, 0.85);
+    background: #0a0805;
+    filter: saturate(0.92) contrast(1.02);
+    transition: all 0.4s ease;
+}
+.aur-avatar-frame:hover {
+    border-color: rgba(232, 204, 110, 0.85);
+    box-shadow:
+        0 0 0 1px rgba(8, 6, 3, 0.95),
+        0 0 0 2px rgba(232, 204, 110, 0.45),
+        0 6px 22px rgba(201, 168, 73, 0.32),
+        inset 0 0 22px rgba(232, 204, 110, 0.14);
+}
+.aur-avatar-frame:hover .aur-avatar { filter: saturate(1.05) contrast(1.06); }
+.aur-corner-bl, .aur-corner-br {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border: 1px solid #c9a849;
+    pointer-events: none;
+}
+.aur-corner-bl { bottom: -2px; left: -2px; border-right: none; border-top: none; }
+.aur-corner-br { bottom: -2px; right: -2px; border-left: none; border-top: none; }
+
+/* === Tags === */
+.aur-tag {
+    display: inline-block;
+    background: rgba(74, 61, 16, 0.25);
+    border: 1px solid rgba(201, 168, 73, 0.45);
+    color: #c9a849;
+    font-family: "Cinzel", serif;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 3px 12px;
+    margin: 2px;
+}
+.aur-tag-bright {
+    display: inline-block;
+    background: rgba(232, 204, 110, 0.10);
+    border: 1px solid rgba(232, 204, 110, 0.55);
+    color: #e8cc6e;
+    font-family: "Cinzel", serif;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 3px 12px;
+    margin: 2px;
+}
+
+/* === Rows + Boxes === */
+.aur-row { display: flex; justify-content: center; gap: 8px; margin: 6px 0; }
+
+.aur-box {
+    background: rgba(18, 13, 7, 0.88);
+    border: 1px solid rgba(201, 168, 73, 0.30);
+    padding: 16px 18px;
+    box-shadow: inset 0 0 35px rgba(0, 0, 0, 0.4), 0 2px 12px rgba(0, 0, 0, 0.45);
+    position: relative;
+    transition: all 0.4s ease;
+}
+.aur-box::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(232, 204, 110, 0.35), transparent);
+}
+.aur-box::after {
+    content: "";
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(201, 168, 73, 0.20), transparent);
+}
+.aur-box:hover {
+    border-color: rgba(232, 204, 110, 0.55);
+    box-shadow: inset 0 0 35px rgba(0, 0, 0, 0.35), 0 4px 18px rgba(201, 168, 73, 0.18);
+}
+.aur-box-half { width: 345px; height: 250px; overflow-y: auto; }
+.aur-box-full { width: 100%; min-height: 80px; max-height: 380px; overflow-y: auto; }
+
+.aur-box-header {
+    font-family: "Cinzel", serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: #e8cc6e;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    text-align: center;
+    margin-bottom: 12px;
+    padding-bottom: 9px;
+    border-bottom: 1px solid rgba(201, 168, 73, 0.32);
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6), 0 0 10px rgba(201, 168, 73, 0.18);
+    position: relative;
+}
+.aur-box-header::after {
+    content: "";
+    display: block;
+    width: 32px;
+    height: 1px;
+    background: rgba(232, 204, 110, 0.45);
+    margin: 7px auto 0;
+}
+
+.aur-text { font-size: 14px; color: #cdc0a0; line-height: 1.75; }
+.aur-text b, .aur-text strong { color: #e8cc6e; font-weight: 600; }
+.aur-text-sm { font-size: 12px; color: #a89260; line-height: 1.65; }
+.aur-text-italic { font-style: italic; color: #b0a070; }
+.aur-text-accent { color: #c9a849; font-weight: 600; }
+.aur-text-bright { color: #e8cc6e; font-weight: 600; }
+.aur-text-muted { color: #8a7a55; font-size: 12px; }
+.aur-text-center { text-align: center; }
+
+.aur-list { list-style: none; padding: 0; margin: 6px 0; }
+.aur-list li {
+    padding: 5px 0 5px 22px;
+    position: relative;
+    font-size: 13.5px;
+    color: #cdc0a0;
+    line-height: 1.6;
+}
+.aur-list li::before {
+    content: "❖";
+    position: absolute;
+    left: 0;
+    color: #c9a849;
+    font-size: 9px;
+    top: 8px;
+    text-shadow: 0 0 4px rgba(201, 168, 73, 0.45);
+}
+
+.aur-info-row {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 5px 0;
+    border-bottom: 1px dotted rgba(201, 168, 73, 0.18);
+    font-size: 13px;
+}
+.aur-info-row:last-child { border-bottom: none; }
+.aur-info-label {
+    font-family: "Cinzel", serif;
+    font-size: 10px;
+    color: #8a7a55;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    flex-shrink: 0;
+}
+.aur-info-value { font-size: 13.5px; color: #cdc0a0; text-align: right; }
+
+.aur-ornament {
+    text-align: center;
+    font-size: 14px;
+    color: rgba(201, 168, 73, 0.55);
+    letter-spacing: 10px;
+    margin: 8px 0;
+}
+
+.aur-footer {
+    text-align: center;
+    margin-top: 16px;
+    padding-top: 12px;
+    font-family: "Cinzel", serif;
+    font-size: 9.5px;
+    color: rgba(201, 168, 73, 0.50);
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    border-top: 1px solid rgba(201, 168, 73, 0.15);
+}
+.aur-credit {
+    text-align: center;
+    margin-top: 6px;
+    font-family: "Cinzel", serif;
+    font-size: 8.5px;
+    color: rgba(201, 168, 73, 0.30);
+    letter-spacing: 2px;
+    font-style: italic;
+}
+.aur-credit a { color: rgba(201, 168, 73, 0.40) !important; text-decoration: none !important; }
+.aur-credit a:hover { color: rgba(232, 204, 110, 0.65) !important; text-shadow: none !important; }
+
+.aur-box::-webkit-scrollbar { width: 5px !important; }
+.aur-box::-webkit-scrollbar-track { background: rgba(8, 6, 3, 0.6) !important; }
+.aur-box::-webkit-scrollbar-thumb { background: rgba(201, 168, 73, 0.35) !important; }
+.aur-box::-webkit-scrollbar-thumb:hover { background: rgba(232, 204, 110, 0.55) !important; }
+
+/* === PREVIEW PAGE LAYOUT === */
+.preview-page { max-width: 1100px; margin: 0 auto; }
+.preview-layout { display: flex; gap: 0; }
+.preview-main { flex: 1; padding: 18px; min-width: 0; }
+.preview-sidebar {
+    width: 290px;
+    padding: 18px;
+    flex-shrink: 0;
+    border-left: 1px solid rgba(201, 168, 73, 0.18);
+}
+.preview-label {
+    font-family: "Cinzel", serif;
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #8a7a55;
+    margin-bottom: 5px;
+}
+.sidebar-stat { display: flex; justify-content: space-between; padding: 4px 0; font-size: 12.5px; }
+.sidebar-stat .ss-label {
+    color: #8a7a55;
+    font-family: "Cinzel", serif;
+    font-size: 10.5px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+.sidebar-stat .ss-val {
+    color: #e8cc6e;
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 600;
+    font-size: 13px;
+}
+
+/* === DEMO BANNER === */
+.demo-banner {
+    background: linear-gradient(90deg, #2a210a 0%, #4a3d10 50%, #2a210a 100%);
+    color: #e8cc6e;
+    text-align: center;
+    padding: 11px 16px;
+    font-family: "Cinzel", serif;
+    font-size: 11px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    border-bottom: 1px solid rgba(201, 168, 73, 0.55);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.55);
+}
+.demo-banner .demo-tag { color: #f5deaa; font-weight: 600; }
+
+/* === RESPONSIVE === */
+@media (max-width: 860px) {
+    .preview-layout { flex-direction: column; }
+    .preview-sidebar { width: 100%; border-left: none; border-top: 1px solid rgba(201, 168, 73, 0.18); }
+    .aur-territory { width: 100% !important; }
+    .aur-row { flex-direction: column; align-items: center; }
+    .aur-box-half { width: 100% !important; height: auto !important; min-height: 180px; }
+    .aur-title { font-size: 46px; }
+}
+</style>
+</head>
+<body>
+
+<!-- === DEMO BANNER === -->
+<div class="demo-banner">
+    ❖ &nbsp; <span class="demo-tag">live preview</span> &nbsp;—&nbsp; the aurelian pride for cam &nbsp; ❖
+</div>
+
+<div class="preview-page">
+
+    <!-- === SIMULATED LIODEN NAVBAR === -->
+    <nav class="navbar">
+        <a href="#">Den</a>
+        <a href="#">Crossroads</a>
+        <a href="#">Hoard</a>
+        <a href="#">Oasis</a>
+        <a href="#">Chatter</a>
+        <a href="#">News</a>
+        <a href="#">Event</a>
+        <a href="#">FAQ</a>
+    </nav>
+
+    <!-- === BREADCRUMB === -->
+    <div class="breadcrumb">
+        <a href="#">Home</a>&nbsp; / &nbsp;<span>The Aurelian Pride</span>
+        <span style="margin-left: auto; font-size: 10px; color: #8a7a55;">CSS by nub · #166079</span>
+    </div>
+
+    <!-- === MAIN CONTAINER === -->
+    <div class="container main">
+        <div class="preview-layout">
+
+            <!-- ============== MAIN COLUMN ============== -->
+            <div class="preview-main">
+
+                <h1 style="font-family: 'UnifrakturMaguntia', cursive; font-size: 50px; margin-bottom: 0; letter-spacing: 1px; line-height: 1; text-transform: none; font-weight: 400;">The Aurelian Pride</h1>
+                <p style="font-size: 11px; color: #8a7a55; letter-spacing: 1.5px; font-family: 'Cinzel', serif; margin: 4px 0 18px;">TERRITORY · CAM · #583285</p>
+
+                <!-- ============================================ -->
+                <!-- TERRITORY DESCRIPTION (the actual den layout) -->
+                <!-- ============================================ -->
+                <div class="aur-territory">
+
+                    <div class="aur-ornament">❖ &nbsp; ✦ &nbsp; ❖</div>
+
+                    <!-- DEN TITLE -->
+                    <div class="aur-title">The Aurelian Pride</div>
+
+                    <!-- SUBTITLE -->
+                    <div class="aur-subtitle">
+                        Gold is a living god and rules in scorn,<br>
+                        all earthly things but virtue
+                    </div>
+
+                    <div class="aur-divider"></div>
+
+                    <!-- AVATAR (rectangular gothic-framed) -->
+                    <div class="aur-avatar-wrap">
+                        <a href="https://www.lioden.com/lion.php?mid=583285">
+                            <span class="aur-avatar-frame">
+                                <img class="aur-avatar"
+                                     src="placeholder-avatar.svg"
+                                     alt="The Aurelian King">
+                                <span class="aur-corner-bl"></span>
+                                <span class="aur-corner-br"></span>
+                            </span>
+                        </a>
+                    </div>
+
+                    <!-- TAGS -->
+                    <div style="text-align: center; margin: 10px 0 4px;">
+                        <span class="aur-tag">she / her</span>
+                        <span class="aur-tag-bright">friend code: 583285</span>
+                    </div>
+
+                    <!-- DECORATIVE PAGE DIVIDER -->
+                    <div class="aur-divider-full">
+                        <span class="aur-divider-mark">❖ &nbsp; the pride &nbsp; ❖</span>
+                    </div>
+
+                    <!-- BOX 1 + BOX 2 side by side -->
+                    <div class="aur-row">
+
+                        <!-- BOX 1 -->
+                        <div class="aur-box aur-box-half">
+                            <div class="aur-box-header">The King</div>
+                            <div class="aur-text">
+                                <span class="aur-text-bright">[KING'S NAME]</span> — write everything you'd like visitors to know about your sovereign here. His personality, his lore, the way he commands the dawn.
+                            </div>
+                            <br>
+                            <div class="aur-text">
+                                Add scars, add stories, add the small quiet things that make him him. The box scrolls if your tale runs long.
+                            </div>
+                            <br>
+                            <div class="aur-text-italic aur-text-center" style="font-size: 13px;">
+                                "every king casts a shadow —<br>his is the shape of gold."
+                            </div>
+                        </div>
+
+                        <!-- BOX 2 -->
+                        <div class="aur-box aur-box-half">
+                            <div class="aur-box-header">Pride</div>
+                            <div class="aur-text">
+                                Tell the story of the <span class="aur-text-bright">Aurelian Pride</span> here. How it was founded, who walks its borders, what it stands for.
+                            </div>
+                            <br>
+                            <div class="aur-text">
+                                Lioness lore, hierarchies, sacred rites — anything that fills out the pride's character belongs in this box.
+                            </div>
+                            <br>
+                            <div class="aur-info-row">
+                                <span class="aur-info-label">founded</span>
+                                <span class="aur-info-value">[generation]</span>
+                            </div>
+                            <div class="aur-info-row">
+                                <span class="aur-info-label">size</span>
+                                <span class="aur-info-value">[#&nbsp;lionesses]</span>
+                            </div>
+                            <div class="aur-info-row">
+                                <span class="aur-info-label">aesthetic</span>
+                                <span class="aur-info-value aur-text-bright">aurelian</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- DECORATIVE PAGE DIVIDER -->
+                    <div class="aur-divider-full">
+                        <span class="aur-divider-mark">❖ &nbsp; breeding goals &nbsp; ❖</span>
+                    </div>
+
+                    <!-- BOX 3 — full-width list -->
+                    <div class="aur-box aur-box-full">
+                        <div class="aur-box-header">Breeding Goals</div>
+                        <ul class="aur-list">
+                            <li><span class="aur-text-accent">Goal one</span> — describe the bloodline, the trait, the dream you're chasing.</li>
+                            <li><span class="aur-text-accent">Goal two</span> — the second pillar of your breeding project.</li>
+                            <li><span class="aur-text-accent">Goal three</span> — what colours, markings, or mutations you're pursuing.</li>
+                            <li><span class="aur-text-accent">Goal four</span> — every list item gets its own gold ❖ marker.</li>
+                            <li><span class="aur-text-accent">Goal five</span> — add or remove rows freely.</li>
+                        </ul>
+                        <br>
+                        <div class="aur-text-italic aur-text-center aur-text-sm">
+                            "what the pride seeks, the pride becomes."
+                        </div>
+                    </div>
+
+                    <div class="aur-divider"></div>
+
+                    <div class="aur-ornament">❖ &nbsp; ✦ &nbsp; ❖</div>
+
+                    <div class="aur-footer">
+                        The Aurelian Pride &nbsp; · &nbsp; cam &nbsp; · &nbsp; Lioden #583285
+                    </div>
+                    <div class="aur-credit">
+                        css &amp; layout by <a href="#">nub</a> · #166079
+                    </div>
+
+                </div>
+                <!-- ===== END TERRITORY DESCRIPTION ===== -->
+
+                <!-- LION IMAGE PLACEHOLDER -->
+                <div style="text-align: center; padding: 30px 0 20px;">
+                    <div style="font-size: 100px; opacity: 0.18; color: #c9a849;">🦁</div>
+                    <p style="font-family: 'Cinzel', serif; font-size: 10px; color: #8a7a55; letter-spacing: 1px; margin: 4px 0 0;">[ lion image renders here on lioden ]</p>
+                </div>
+
+                <!-- COMMENT BOX SIMULATION -->
+                <div class="panel">
+                    <div class="panel-heading">comment box</div>
+                    <div class="panel-body" style="padding: 0;">
+                        <div class="chat_light">
+                            <strong style="color: #c9a849;">camulats</strong>
+                            <span style="font-size: 10px; color: #8a7a55; font-family: 'Cinzel', serif; letter-spacing: 0.5px;">3rd may at 14:21</span>
+                            <br>this whole layout is divine — gold absolutely sings ❖
+                        </div>
+                        <div class="chat_dark">
+                            <strong style="color: #c9a849;">synarvis</strong>
+                            <span style="font-size: 10px; color: #8a7a55; font-family: 'Cinzel', serif; letter-spacing: 0.5px;">2nd may at 09:12</span>
+                            <br>the aurelian pride? immaculate name. may i request a stud?
+                        </div>
+                        <div class="chat_light">
+                            <strong style="color: #c9a849;">visitor</strong>
+                            <span style="font-size: 10px; color: #8a7a55; font-family: 'Cinzel', serif; letter-spacing: 0.5px;">28th apr at 17:48</span>
+                            <br>who made this css? it's stunning ✦
+                        </div>
+                    </div>
+                </div>
+
+                <!-- POST INPUT -->
+                <div style="display: flex; gap: 8px; margin-top: 12px;">
+                    <input type="text" placeholder="Leave a comment...">
+                    <span class="btn" style="white-space: nowrap;">post</span>
+                </div>
+
+            </div>
+
+            <!-- ============== SIDEBAR COLUMN ============== -->
+            <div class="preview-sidebar">
+
+                <!-- DATE / TIME -->
+                <div class="well">
+                    <div style="font-family: 'Cinzel', serif; font-size: 10.5px; color: #a89260; letter-spacing: 1px; line-height: 1.85;">
+                        10th May, 2026<br>
+                        <span style="color: #c9a849;">2:14pm Lioden time</span><br>
+                        <span style="color: #e8cc6e;">3,892 members online</span><br>
+                        <span style="color: #8a7a55;">2 friends online</span>
+                    </div>
+                </div>
+
+                <!-- BEETLES -->
+                <div class="well">
+                    <span style="font-family: 'Cinzel', serif; font-size: 12px; color: #e8cc6e; letter-spacing: 1.5px;">🪲 56 rhino beetles</span>
+                </div>
+
+                <!-- KING PANEL -->
+                <div class="panel">
+                    <div class="panel-heading">your king</div>
+                    <div class="panel-body">
+                        <div style="margin-bottom: 8px;">
+                            <div class="preview-label">energy: 78%</div>
+                            <div class="progress"><div class="progress-bar" style="width: 78%;">78%</div></div>
+                        </div>
+                        <div style="margin-bottom: 8px;">
+                            <div class="preview-label">hunger: 12%</div>
+                            <div class="progress"><div class="progress-bar" style="width: 12%;">12%</div></div>
+                        </div>
+                        <div style="margin-bottom: 8px;">
+                            <div class="preview-label">exp: 64%</div>
+                            <div class="progress"><div class="progress-bar" style="width: 64%;">64%</div></div>
+                        </div>
+                        <div style="margin-bottom: 12px;">
+                            <div class="preview-label">imp: 91%</div>
+                            <div class="progress"><div class="progress-bar" style="width: 91%;">91%</div></div>
+                        </div>
+                        <div class="sidebar-stat"><span class="ss-label">level</span><span class="ss-val">12</span></div>
+                        <div class="sidebar-stat"><span class="ss-label">impression</span><span class="ss-val">very impressive</span></div>
+                    </div>
+                </div>
+
+                <!-- ACHIEVEMENTS -->
+                <div class="panel">
+                    <div class="panel-heading">achievements</div>
+                    <div class="panel-body">
+                        <div class="progress"><div class="progress-bar" style="width: 47%;">47%</div></div>
+                    </div>
+                </div>
+
+                <!-- BOOKMARKS -->
+                <div class="panel">
+                    <div class="panel-heading">bookmarks</div>
+                    <div class="panel-body">
+                        <a href="#" style="display: block; padding: 4px 0; font-size: 12.5px;">› Baoball</a>
+                        <a href="#" style="display: block; padding: 4px 0; font-size: 12.5px;">› Beetle Battling</a>
+                        <a href="#" style="display: block; padding: 4px 0; font-size: 12.5px;">› Den</a>
+                        <a href="#" style="display: block; padding: 4px 0; font-size: 12.5px;">› Exploring</a>
+                        <a href="#" style="display: block; padding: 4px 0; font-size: 12.5px;">› Hunting</a>
+                        <a href="#" style="display: block; padding: 4px 0; font-size: 12.5px;">› Patrolling</a>
+                        <a href="#" style="display: block; padding: 4px 0; font-size: 12.5px;">› Territory Map</a>
+                        <a href="#" style="display: block; padding: 4px 0; font-size: 12.5px;">› The Giving Tree</a>
+                    </div>
+                </div>
+
+                <!-- GAME STATS -->
+                <div class="panel">
+                    <div class="panel-heading">game stats</div>
+                    <div class="panel-body">
+                        <div class="sidebar-stat"><span class="ss-label">members</span><span class="ss-val">583,336</span></div>
+                        <div class="sidebar-stat"><span class="ss-label">lionesses</span><span class="ss-val">5.1M</span></div>
+                        <div class="sidebar-stat"><span class="ss-label">cubs bred</span><span class="ss-val">4.0M</span></div>
+                        <div class="sidebar-stat"><span class="ss-label">mutated</span><span class="ss-val">1.1M</span></div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
