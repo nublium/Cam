@@ -3,25 +3,37 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Aurelian Pride — Live Preview · cam · Lioden</title>
-<!-- === FONTS === -->
-<link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Cinzel:wght@400;500;600;700;900&family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Crimson+Pro:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<title>The Aurelian Pride — Live Preview · cam · Kreta · Lioden</title>
+<link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=UnifrakturCook:wght@700&family=Pirata+One&family=MedievalSharp&family=Cinzel:wght@400;500;600;700;900&family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Crimson+Pro:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
 <style>
 /* ============================================================
-   THE AURELIAN PRIDE — STANDALONE PREVIEW
-   Gothic & Gold Theme · For cam · Lioden #583285
+   THE AURELIAN PRIDE — STANDALONE PREVIEW · GOTHIC EDITION
+   For cam · Kreta the Scarred King · Lioden #583285
    By nub · Lioden Commissions · #166079
    ============================================================ */
 * { box-sizing: border-box; }
 
-/* === PAGE BACKGROUND (mirrors the live den) === */
+@keyframes aur-flicker {
+    0%,  100% { opacity: 1;    text-shadow: 0 0 22px rgba(232, 204, 110, 0.55), 0 0 50px rgba(201, 168, 73, 0.22), 0 2px 4px rgba(0, 0, 0, 0.85); }
+    18%       { opacity: 0.88; text-shadow: 0 0 14px rgba(232, 204, 110, 0.35), 0 0 36px rgba(201, 168, 73, 0.15), 0 2px 4px rgba(0, 0, 0, 0.85); }
+    24%       { opacity: 1;    text-shadow: 0 0 26px rgba(232, 204, 110, 0.65), 0 0 60px rgba(201, 168, 73, 0.28), 0 2px 4px rgba(0, 0, 0, 0.85); }
+    47%       { opacity: 0.94; text-shadow: 0 0 18px rgba(232, 204, 110, 0.45), 0 0 42px rgba(201, 168, 73, 0.18), 0 2px 4px rgba(0, 0, 0, 0.85); }
+    73%       { opacity: 1;    text-shadow: 0 0 24px rgba(232, 204, 110, 0.60), 0 0 54px rgba(201, 168, 73, 0.25), 0 2px 4px rgba(0, 0, 0, 0.85); }
+}
+@keyframes aur-ember {
+    0%,  100% { opacity: 0.55; transform: translateY(0); }
+    50%       { opacity: 0.85; transform: translateY(-1px); }
+}
+
+/* === BACKGROUND === */
 body {
     background: #0a0805 !important;
     background-image:
         radial-gradient(ellipse at 20% 30%, rgba(75, 60, 18, 0.32) 0%, transparent 55%),
         radial-gradient(ellipse at 80% 70%, rgba(95, 75, 22, 0.22) 0%, transparent 55%),
         radial-gradient(ellipse at 50% 0%, rgba(140, 110, 35, 0.10) 0%, transparent 45%),
-        radial-gradient(ellipse at 50% 100%, rgba(80, 60, 15, 0.12) 0%, transparent 45%) !important;
+        radial-gradient(ellipse at 50% 100%, rgba(80, 60, 15, 0.12) 0%, transparent 45%),
+        radial-gradient(ellipse at 50% 50%, transparent 35%, rgba(0, 0, 0, 0.55) 100%) !important;
     background-attachment: fixed !important;
     color: #d4c8a8 !important;
     font-family: "Cormorant Garamond", "Georgia", serif !important;
@@ -31,10 +43,9 @@ body {
     padding: 0;
 }
 
-/* === SIMULATED LIODEN MAIN CONTAINER === */
 div.container.main, .container.main {
     background: rgba(15, 11, 6, 0.94) !important;
-    border: 1px solid rgba(201, 168, 73, 0.20) !important;
+    border: 1px solid rgba(201, 168, 73, 0.22) !important;
     border-top: none !important;
     box-shadow: 0 0 40px rgba(0, 0, 0, 0.7), inset 0 0 90px rgba(0, 0, 0, 0.35) !important;
     color: #d4c8a8 !important;
@@ -43,17 +54,12 @@ div.container.main, .container.main {
     padding: 0;
 }
 
-/* === NAVBAR === */
 .navbar {
     background: linear-gradient(180deg, #110d06 0%, #08060300 100%) !important;
     border-bottom: 1px solid rgba(201, 168, 73, 0.32) !important;
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.55) !important;
     padding: 11px 0;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 4px;
-    margin: 0;
+    display: flex; justify-content: center; flex-wrap: wrap; gap: 4px; margin: 0;
 }
 .navbar a {
     color: #8a7a55 !important;
@@ -66,12 +72,8 @@ div.container.main, .container.main {
     padding: 8px 16px;
     display: inline-block;
 }
-.navbar a:hover {
-    color: #e8cc6e !important;
-    text-shadow: 0 0 8px rgba(232, 204, 110, 0.45) !important;
-}
+.navbar a:hover { color: #e8cc6e !important; text-shadow: 0 0 8px rgba(232, 204, 110, 0.45) !important; }
 
-/* === BREADCRUMB === */
 .breadcrumb {
     background: rgba(8, 6, 3, 0.6) !important;
     border-bottom: 1px solid rgba(201, 168, 73, 0.18) !important;
@@ -80,23 +82,18 @@ div.container.main, .container.main {
     font-size: 11px !important;
     letter-spacing: 0.5px !important;
     padding: 8px 18px;
-    margin: 0;
-    list-style: none;
-    display: flex;
-    gap: 6px;
+    margin: 0; list-style: none; display: flex; gap: 6px;
 }
 .breadcrumb a { color: #c9a849 !important; text-decoration: none; }
 .breadcrumb a:hover { color: #e8cc6e !important; }
 
-/* === SIDEBAR PANELS === */
 .panel {
     background: rgba(18, 13, 7, 0.88) !important;
     border: 1px solid rgba(201, 168, 73, 0.22) !important;
     border-radius: 0 !important;
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.4), inset 0 0 30px rgba(0, 0, 0, 0.25) !important;
     color: #d4c8a8 !important;
-    margin-bottom: 12px;
-    overflow: hidden;
+    margin-bottom: 12px; overflow: hidden;
 }
 .panel-heading {
     background: linear-gradient(180deg, rgba(74, 61, 16, 0.55) 0%, rgba(34, 26, 8, 0.75) 100%) !important;
@@ -106,16 +103,10 @@ div.container.main, .container.main {
     letter-spacing: 1.5px !important;
     font-size: 12px !important;
     border-bottom: 1px solid rgba(201, 168, 73, 0.32) !important;
-    padding: 10px 14px;
-    text-align: center;
+    padding: 10px 14px; text-align: center;
 }
-.panel-body {
-    background: transparent !important;
-    color: #d4c8a8 !important;
-    padding: 14px 16px;
-}
+.panel-body { background: transparent !important; color: #d4c8a8 !important; padding: 14px 16px; }
 
-/* === HEADINGS === */
 h1, h2, h3, h4, h5, h6 {
     color: #e8cc6e !important;
     font-family: "Cinzel Decorative", "Cinzel", serif !important;
@@ -125,50 +116,34 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0 0 8px;
 }
 
-/* === LINKS === */
 a:link, a { color: #c9a849 !important; text-decoration: none !important; transition: all 0.3s ease !important; }
 a:visited { color: #8b7320 !important; }
 a:hover { color: #e8cc6e !important; text-shadow: 0 0 6px rgba(232, 204, 110, 0.45) !important; }
 
-/* === PROGRESS BARS === */
 .progress {
     background-color: rgba(8, 6, 3, 0.85) !important;
     border: 1px solid rgba(201, 168, 73, 0.22) !important;
     border-radius: 0 !important;
     box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.55) !important;
-    height: 18px !important;
-    overflow: hidden;
-    margin-bottom: 6px;
+    height: 18px !important; overflow: hidden; margin-bottom: 6px;
 }
 .progress-bar {
     background: linear-gradient(90deg, #4a3d10 0%, #8b7320 50%, #c9a849 100%) !important;
     box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.35), 0 0 8px rgba(201, 168, 73, 0.30) !important;
-    border-radius: 0 !important;
-    height: 100%;
-    color: #1a1408;
-    font-size: 10px;
-    line-height: 18px;
-    text-align: center;
-    font-family: "Cinzel", serif;
-    letter-spacing: 1px;
-    font-weight: 600;
+    border-radius: 0 !important; height: 100%;
+    color: #1a1408; font-size: 10px; line-height: 18px; text-align: center;
+    font-family: "Cinzel", serif; letter-spacing: 1px; font-weight: 600;
 }
 
-/* === BUTTONS === */
 .btn {
     background: linear-gradient(180deg, #2a210a 0%, #15100400 100%) !important;
     border: 1px solid rgba(201, 168, 73, 0.42) !important;
-    border-radius: 0 !important;
-    color: #e8cc6e !important;
+    border-radius: 0 !important; color: #e8cc6e !important;
     font-family: "Cinzel", serif !important;
     text-transform: uppercase !important;
-    font-size: 11px !important;
-    letter-spacing: 1.2px !important;
-    padding: 7px 16px;
-    cursor: pointer;
-    transition: all 0.3s ease !important;
-    display: inline-block;
-    text-decoration: none;
+    font-size: 11px !important; letter-spacing: 1.2px !important;
+    padding: 7px 16px; cursor: pointer;
+    transition: all 0.3s ease !important; display: inline-block; text-decoration: none;
 }
 .btn:hover {
     background: linear-gradient(180deg, #4a3d10 0%, #2a210a 100%) !important;
@@ -177,16 +152,12 @@ a:hover { color: #e8cc6e !important; text-shadow: 0 0 6px rgba(232, 204, 110, 0.
     box-shadow: 0 0 12px rgba(201, 168, 73, 0.32) !important;
 }
 
-/* === INPUTS === */
 input[type="text"], textarea, .form-control {
     background: rgba(8, 6, 3, 0.85) !important;
     border: 1px solid rgba(201, 168, 73, 0.25) !important;
-    border-radius: 0 !important;
-    color: #d4c8a8 !important;
+    border-radius: 0 !important; color: #d4c8a8 !important;
     font-family: "Cormorant Garamond", serif !important;
-    font-size: 14px;
-    padding: 7px 11px;
-    width: 100%;
+    font-size: 14px; padding: 7px 11px; width: 100%;
 }
 input:focus, textarea:focus {
     border-color: rgba(232, 204, 110, 0.55) !important;
@@ -194,30 +165,27 @@ input:focus, textarea:focus {
     outline: none !important;
 }
 
-/* === CHAT ROWS === */
 .chat_light { background: rgba(18, 13, 7, 0.55) !important; border-bottom: 1px solid rgba(201, 168, 73, 0.10); color: #cdc0a0 !important; padding: 9px 14px; }
 .chat_dark { background: rgba(15, 11, 6, 0.75) !important; border-bottom: 1px solid rgba(201, 168, 73, 0.10); color: #cdc0a0 !important; padding: 9px 14px; }
 
-/* === WELL === */
 .well {
     background: rgba(15, 11, 6, 0.85) !important;
     border: 1px solid rgba(201, 168, 73, 0.20) !important;
-    border-radius: 0 !important;
-    color: #d4c8a8 !important;
+    border-radius: 0 !important; color: #d4c8a8 !important;
     box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.4) !important;
-    padding: 12px;
-    margin-bottom: 12px;
-    text-align: center;
+    padding: 12px; margin-bottom: 12px; text-align: center;
 }
 
-/* === SCROLLBARS === */
 ::-webkit-scrollbar { width: 8px !important; height: 8px !important; }
 ::-webkit-scrollbar-track { background: #0a0805 !important; }
-::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #4a3d10 0%, #1a1408 100%) !important; border: 1px solid rgba(201, 168, 73, 0.32) !important; }
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #4a3d10 0%, #1a1408 100%) !important;
+    border: 1px solid rgba(201, 168, 73, 0.32) !important;
+}
 ::-webkit-scrollbar-thumb:hover { background: linear-gradient(180deg, #8b7320 0%, #4a3d10 100%) !important; }
 
 /* ============================================================
-   TERRITORY DESCRIPTION — THE AURELIAN PRIDE
+   ✠  TERRITORY DESCRIPTION — THE AURELIAN PRIDE  ✠
    ============================================================ */
 .aur-territory {
     width: 700px;
@@ -225,365 +193,470 @@ input:focus, textarea:focus {
     font-family: "Cormorant Garamond", "Georgia", serif;
     color: #d4c8a8;
     line-height: 1.7;
+    position: relative;
+    padding: 8px 4px 12px;
+    background-image:
+        radial-gradient(ellipse at 30% 20%, rgba(232, 204, 110, 0.020) 0%, transparent 55%),
+        radial-gradient(ellipse at 70% 80%, rgba(232, 204, 110, 0.015) 0%, transparent 55%);
+}
+.aur-territory::before, .aur-territory::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent 0%, rgba(201, 168, 73, 0.45) 15%, #c9a849 50%, rgba(201, 168, 73, 0.45) 85%, transparent 100%);
+    pointer-events: none;
+}
+.aur-territory::before { top: 0; box-shadow: 0 4px 0 -3px rgba(201, 168, 73, 0.35); }
+.aur-territory::after  { bottom: 0; box-shadow: 0 -4px 0 -3px rgba(201, 168, 73, 0.35); }
+
+.aur-crest-row {
+    display: flex; justify-content: center; align-items: center;
+    gap: 14px; margin: 4px 0 -2px;
+    color: rgba(201, 168, 73, 0.55);
+    font-size: 16px; letter-spacing: 12px;
+    font-family: "Cinzel Decorative", serif;
+    animation: aur-ember 5s ease-in-out infinite;
 }
 
 .aur-title {
     text-align: center;
-    padding: 20px 10px 4px;
-    margin: 0;
-    font-family: "UnifrakturMaguntia", "Cinzel Decorative", serif;
-    font-size: 64px;
-    font-weight: 400;
+    padding: 8px 10px 4px; margin: 0;
+    font-family: "UnifrakturMaguntia", "UnifrakturCook", "Pirata One", serif;
+    font-size: 64px; font-weight: 400;
     color: #e8cc6e;
-    letter-spacing: 2px;
-    line-height: 1;
+    letter-spacing: 2px; line-height: 1;
     text-shadow:
-        0 0 22px rgba(201, 168, 73, 0.45),
-        0 0 50px rgba(201, 168, 73, 0.18),
+        0 0 22px rgba(232, 204, 110, 0.55),
+        0 0 50px rgba(201, 168, 73, 0.22),
         0 2px 4px rgba(0, 0, 0, 0.85);
+    animation: aur-flicker 7s ease-in-out infinite;
+    position: relative;
+}
+.aur-title::before, .aur-title::after {
+    content: "✠";
+    color: #c9a849;
+    font-family: "Cinzel Decorative", serif;
+    font-size: 22px; vertical-align: super;
+    margin: 0 18px;
+    text-shadow: 0 0 8px rgba(201, 168, 73, 0.55);
 }
 
 .aur-subtitle {
     text-align: center;
     font-family: "Cormorant Garamond", serif;
-    font-style: italic;
-    font-size: 14px;
+    font-style: italic; font-size: 14.5px;
     color: #a89260;
-    letter-spacing: 1.5px;
-    margin: 6px 30px 6px;
-    line-height: 1.4;
+    letter-spacing: 1.2px; margin: 8px 30px 4px; line-height: 1.5;
+}
+
+.aur-motto {
+    text-align: center;
+    font-family: "Cinzel", serif;
+    font-size: 9px;
+    color: rgba(201, 168, 73, 0.55);
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    margin: 6px 0 2px;
 }
 
 .aur-divider {
-    width: 55%;
-    margin: 14px auto;
-    height: 1px;
+    width: 55%; margin: 14px auto; height: 1px;
     background: linear-gradient(90deg, transparent 0%, rgba(201, 168, 73, 0.25) 20%, #c9a849 50%, rgba(201, 168, 73, 0.25) 80%, transparent 100%);
-    border: none;
-    position: relative;
+    border: none; position: relative;
 }
 .aur-divider::before {
     content: "❖";
-    position: absolute;
-    top: -8px;
-    left: 50%;
-    transform: translateX(-50%);
-    color: #c9a849;
-    font-size: 11px;
-    background: #15110a;
-    padding: 0 8px;
+    position: absolute; top: -8px; left: 50%; transform: translateX(-50%);
+    color: #c9a849; font-size: 11px;
+    background: #15110a; padding: 0 8px;
+    text-shadow: 0 0 6px rgba(201, 168, 73, 0.45);
 }
 
 .aur-divider-full {
-    width: 100%;
-    margin: 18px 0 14px;
-    height: 18px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    border: none;
+    width: 100%; margin: 20px 0 16px; height: 18px;
+    display: flex; align-items: center; gap: 12px; border: none;
 }
 .aur-divider-full::before, .aur-divider-full::after {
-    content: "";
-    flex: 1;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(201, 168, 73, 0.35), rgba(232, 204, 110, 0.45), rgba(201, 168, 73, 0.35), transparent);
+    content: ""; flex: 1; height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(201, 168, 73, 0.35), rgba(232, 204, 110, 0.55), rgba(201, 168, 73, 0.35), transparent);
 }
 .aur-divider-mark {
-    font-family: "Cinzel", serif;
-    font-size: 10px;
-    color: #c9a849;
-    letter-spacing: 5px;
-    text-transform: uppercase;
-    white-space: nowrap;
-    text-shadow: 0 0 6px rgba(201, 168, 73, 0.35);
+    font-family: "Cinzel", serif; font-size: 10px;
+    color: #c9a849; letter-spacing: 5px;
+    text-transform: uppercase; white-space: nowrap;
+    text-shadow: 0 0 6px rgba(201, 168, 73, 0.45);
+}
+.aur-divider-mark .cross {
+    color: #e8cc6e; font-size: 13px; margin: 0 6px;
+    vertical-align: -1px;
+    text-shadow: 0 0 10px rgba(232, 204, 110, 0.55);
 }
 
-/* === Avatar (rectangular, NOT round) === */
-.aur-avatar-wrap { text-align: center; margin: 16px 0 8px; }
+.aur-crest-divider {
+    text-align: center; margin: 24px 0 18px;
+    position: relative; height: 36px;
+}
+.aur-crest-divider::before, .aur-crest-divider::after {
+    content: ""; position: absolute; top: 50%;
+    width: 38%; height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(201, 168, 73, 0.45), rgba(232, 204, 110, 0.65), rgba(201, 168, 73, 0.45), transparent);
+}
+.aur-crest-divider::before { left: 0; }
+.aur-crest-divider::after  { right: 0; }
+.aur-crest-medallion {
+    display: inline-block; position: relative;
+    width: 36px; height: 36px; line-height: 36px;
+    text-align: center; color: #e8cc6e;
+    font-family: "Cinzel Decorative", serif;
+    font-size: 18px;
+    border: 1px solid rgba(201, 168, 73, 0.55);
+    background: radial-gradient(circle at 50% 40%, rgba(232, 204, 110, 0.18) 0%, rgba(15, 11, 6, 0.95) 70%);
+    box-shadow:
+        0 0 0 3px rgba(15, 11, 6, 0.95),
+        0 0 0 4px rgba(201, 168, 73, 0.30),
+        0 0 14px rgba(201, 168, 73, 0.35);
+    transform: rotate(45deg);
+}
+.aur-crest-medallion span {
+    display: inline-block; transform: rotate(-45deg);
+    text-shadow: 0 0 8px rgba(232, 204, 110, 0.55);
+}
+
+/* === Avatar (cathedral-arch frame) === */
+.aur-avatar-wrap { text-align: center; margin: 16px 0 6px; position: relative; }
+.aur-avatar-crown {
+    display: block; margin: 0 auto -8px;
+    color: #e8cc6e; font-size: 22px; line-height: 1; letter-spacing: 6px;
+    text-shadow: 0 0 10px rgba(232, 204, 110, 0.65), 0 0 22px rgba(201, 168, 73, 0.35);
+    animation: aur-flicker 6s ease-in-out infinite;
+}
 .aur-avatar-frame {
-    display: inline-block;
-    position: relative;
-    padding: 8px;
-    background: linear-gradient(135deg, rgba(201, 168, 73, 0.18) 0%, rgba(74, 61, 16, 0.45) 100%);
-    border: 1px solid rgba(201, 168, 73, 0.45);
+    display: inline-block; position: relative; padding: 9px;
+    background: linear-gradient(135deg, rgba(201, 168, 73, 0.22) 0%, rgba(74, 61, 16, 0.50) 100%);
+    border: 1px solid rgba(201, 168, 73, 0.55);
     box-shadow:
         0 0 0 1px rgba(8, 6, 3, 0.95),
-        0 0 0 2px rgba(232, 204, 110, 0.20),
-        0 4px 18px rgba(0, 0, 0, 0.6),
-        inset 0 0 18px rgba(232, 204, 110, 0.08);
+        0 0 0 2px rgba(232, 204, 110, 0.22),
+        0 4px 22px rgba(0, 0, 0, 0.65),
+        inset 0 0 22px rgba(232, 204, 110, 0.10);
     transition: all 0.4s ease;
 }
 .aur-avatar-frame::before, .aur-avatar-frame::after {
-    content: "";
-    position: absolute;
-    width: 14px;
-    height: 14px;
-    border: 1px solid #c9a849;
-    pointer-events: none;
+    content: ""; position: absolute;
+    width: 16px; height: 16px;
+    border: 1px solid #c9a849; pointer-events: none;
 }
-.aur-avatar-frame::before { top: -2px; left: -2px; border-right: none; border-bottom: none; }
-.aur-avatar-frame::after { top: -2px; right: -2px; border-left: none; border-bottom: none; }
+.aur-avatar-frame::before { top: -3px; left: -3px; border-right: none; border-bottom: none; }
+.aur-avatar-frame::after  { top: -3px; right: -3px; border-left: none; border-bottom: none; }
+.aur-corner-bl, .aur-corner-br {
+    position: absolute; width: 16px; height: 16px;
+    border: 1px solid #c9a849; pointer-events: none;
+}
+.aur-corner-bl { bottom: -3px; left: -3px; border-right: none; border-top: none; }
+.aur-corner-br { bottom: -3px; right: -3px; border-left: none; border-top: none; }
 .aur-avatar {
-    width: 110px;
-    height: 110px;
-    object-fit: cover;
-    display: block;
+    width: 130px; height: 150px; object-fit: cover; display: block;
     border-radius: 0 !important;
     border: 1px solid rgba(74, 61, 16, 0.85);
     background: #0a0805;
-    filter: saturate(0.92) contrast(1.02);
+    filter: saturate(0.92) contrast(1.05);
     transition: all 0.4s ease;
+    clip-path: path('M 0 65 Q 0 0, 65 0 Q 130 0, 130 65 L 130 150 L 0 150 Z');
 }
 .aur-avatar-frame:hover {
-    border-color: rgba(232, 204, 110, 0.85);
+    border-color: rgba(232, 204, 110, 0.95);
     box-shadow:
         0 0 0 1px rgba(8, 6, 3, 0.95),
-        0 0 0 2px rgba(232, 204, 110, 0.45),
-        0 6px 22px rgba(201, 168, 73, 0.32),
-        inset 0 0 22px rgba(232, 204, 110, 0.14);
+        0 0 0 2px rgba(232, 204, 110, 0.55),
+        0 6px 28px rgba(201, 168, 73, 0.42),
+        inset 0 0 26px rgba(232, 204, 110, 0.18);
 }
-.aur-avatar-frame:hover .aur-avatar { filter: saturate(1.05) contrast(1.06); }
-.aur-corner-bl, .aur-corner-br {
-    position: absolute;
-    width: 14px;
-    height: 14px;
-    border: 1px solid #c9a849;
+.aur-avatar-frame:hover .aur-avatar { filter: saturate(1.05) contrast(1.08); }
+.aur-avatar-flank {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    color: rgba(201, 168, 73, 0.55); font-size: 22px;
     pointer-events: none;
+    text-shadow: 0 0 8px rgba(201, 168, 73, 0.45);
 }
-.aur-corner-bl { bottom: -2px; left: -2px; border-right: none; border-top: none; }
-.aur-corner-br { bottom: -2px; right: -2px; border-left: none; border-top: none; }
+.aur-avatar-flank.left { left: calc(50% - 130px); }
+.aur-avatar-flank.right { right: calc(50% - 130px); }
 
-/* === Tags === */
-.aur-tag {
+/* === Wax-seal tags === */
+.aur-tag, .aur-tag-bright {
     display: inline-block;
-    background: rgba(74, 61, 16, 0.25);
-    border: 1px solid rgba(201, 168, 73, 0.45);
-    color: #c9a849;
     font-family: "Cinzel", serif;
-    font-size: 10px;
-    letter-spacing: 1.5px;
+    font-size: 10px; letter-spacing: 1.5px;
     text-transform: uppercase;
-    padding: 3px 12px;
-    margin: 2px;
+    padding: 4px 14px; margin: 3px;
+    position: relative;
+    border: 1px solid rgba(201, 168, 73, 0.55);
+    background:
+        radial-gradient(ellipse at 30% 25%, rgba(232, 204, 110, 0.18) 0%, transparent 55%),
+        linear-gradient(135deg, rgba(74, 61, 16, 0.40) 0%, rgba(34, 26, 8, 0.65) 100%);
+    color: #c9a849;
+    box-shadow:
+        inset 0 1px 0 rgba(232, 204, 110, 0.18),
+        inset 0 -1px 2px rgba(0, 0, 0, 0.45),
+        0 1px 3px rgba(0, 0, 0, 0.5);
 }
 .aur-tag-bright {
-    display: inline-block;
-    background: rgba(232, 204, 110, 0.10);
-    border: 1px solid rgba(232, 204, 110, 0.55);
     color: #e8cc6e;
-    font-family: "Cinzel", serif;
-    font-size: 10px;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    padding: 3px 12px;
-    margin: 2px;
+    border-color: rgba(232, 204, 110, 0.75);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 230, 150, 0.28),
+        inset 0 -1px 2px rgba(0, 0, 0, 0.45),
+        0 0 10px rgba(232, 204, 110, 0.18);
 }
 
-/* === Rows + Boxes === */
+/* === Boxes === */
 .aur-row { display: flex; justify-content: center; gap: 8px; margin: 6px 0; }
-
 .aur-box {
-    background: rgba(18, 13, 7, 0.88);
+    background: linear-gradient(180deg, rgba(22, 16, 9, 0.92) 0%, rgba(16, 11, 6, 0.92) 100%);
     border: 1px solid rgba(201, 168, 73, 0.30);
-    padding: 16px 18px;
-    box-shadow: inset 0 0 35px rgba(0, 0, 0, 0.4), 0 2px 12px rgba(0, 0, 0, 0.45);
-    position: relative;
-    transition: all 0.4s ease;
+    padding: 18px 20px 16px;
+    box-shadow: inset 0 0 35px rgba(0, 0, 0, 0.4), 0 2px 14px rgba(0, 0, 0, 0.50);
+    position: relative; transition: all 0.4s ease;
 }
 .aur-box::before {
-    content: "";
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(232, 204, 110, 0.35), transparent);
+    content: ""; position: absolute;
+    top: 4px; left: 4px; right: 4px; bottom: 4px;
+    border: 1px solid rgba(201, 168, 73, 0.18);
+    pointer-events: none;
 }
 .aur-box::after {
-    content: "";
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(201, 168, 73, 0.20), transparent);
+    content: ""; position: absolute;
+    top: 0; left: 0; right: 0; height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(232, 204, 110, 0.55), transparent);
 }
+.aur-box-corner {
+    position: absolute; width: 16px; height: 16px;
+    border: 1px solid rgba(201, 168, 73, 0.60);
+    pointer-events: none;
+}
+.aur-box-corner.tl { top: -1px; left: -1px; border-right: none; border-bottom: none; }
+.aur-box-corner.tr { top: -1px; right: -1px; border-left: none; border-bottom: none; }
+.aur-box-corner.bl { bottom: -1px; left: -1px; border-right: none; border-top: none; }
+.aur-box-corner.br { bottom: -1px; right: -1px; border-left: none; border-top: none; }
 .aur-box:hover {
-    border-color: rgba(232, 204, 110, 0.55);
-    box-shadow: inset 0 0 35px rgba(0, 0, 0, 0.35), 0 4px 18px rgba(201, 168, 73, 0.18);
+    border-color: rgba(232, 204, 110, 0.65);
+    box-shadow: inset 0 0 35px rgba(0, 0, 0, 0.30), 0 4px 22px rgba(201, 168, 73, 0.22);
 }
-.aur-box-half { width: 345px; height: 250px; overflow-y: auto; }
-.aur-box-full { width: 100%; min-height: 80px; max-height: 380px; overflow-y: auto; }
+.aur-box:hover::after { background: linear-gradient(90deg, transparent, rgba(232, 204, 110, 0.85), transparent); }
 
+.aur-box-half { width: 345px; height: 270px; overflow-y: auto; }
+.aur-box-full { width: 100%; min-height: 80px; max-height: 420px; overflow-y: auto; }
+
+.aur-box-numeral {
+    text-align: center; font-family: "Cinzel Decorative", serif;
+    font-size: 11px; color: rgba(201, 168, 73, 0.55);
+    letter-spacing: 4px; margin-bottom: 2px;
+}
 .aur-box-header {
-    font-family: "Cinzel", serif;
-    font-size: 13px;
-    font-weight: 600;
+    font-family: "Cinzel Decorative", "Cinzel", serif;
+    font-size: 14px; font-weight: 700;
     color: #e8cc6e;
-    text-transform: uppercase;
-    letter-spacing: 2.5px;
-    text-align: center;
-    margin-bottom: 12px;
+    text-transform: uppercase; letter-spacing: 2.5px;
+    text-align: center; margin: 0 0 12px;
     padding-bottom: 9px;
     border-bottom: 1px solid rgba(201, 168, 73, 0.32);
-    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6), 0 0 10px rgba(201, 168, 73, 0.18);
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6), 0 0 12px rgba(201, 168, 73, 0.32);
     position: relative;
 }
+.aur-box-header .sym {
+    display: inline-block; margin: 0 10px;
+    color: #c9a849; font-size: 14px;
+    vertical-align: -1px;
+    text-shadow: 0 0 8px rgba(201, 168, 73, 0.55);
+}
 .aur-box-header::after {
-    content: "";
-    display: block;
-    width: 32px;
-    height: 1px;
-    background: rgba(232, 204, 110, 0.45);
+    content: ""; display: block;
+    width: 32px; height: 1px;
+    background: rgba(232, 204, 110, 0.55);
     margin: 7px auto 0;
 }
 
-.aur-text { font-size: 14px; color: #cdc0a0; line-height: 1.75; }
+.aur-dropcap {
+    float: left;
+    font-family: "UnifrakturMaguntia", "Cinzel Decorative", serif;
+    font-size: 48px; line-height: 0.85;
+    color: #e8cc6e;
+    margin: 4px 8px 0 0;
+    padding: 4px 6px 2px;
+    text-shadow: 0 0 12px rgba(232, 204, 110, 0.45), 0 2px 4px rgba(0, 0, 0, 0.7);
+    border: 1px solid rgba(201, 168, 73, 0.35);
+    background: linear-gradient(135deg, rgba(74, 61, 16, 0.30) 0%, rgba(34, 26, 8, 0.55) 100%);
+    box-shadow: inset 0 0 12px rgba(232, 204, 110, 0.10);
+}
+
+.aur-text { font-size: 14px; color: #cdc0a0; line-height: 1.78; }
 .aur-text b, .aur-text strong { color: #e8cc6e; font-weight: 600; }
 .aur-text-sm { font-size: 12px; color: #a89260; line-height: 1.65; }
 .aur-text-italic { font-style: italic; color: #b0a070; }
 .aur-text-accent { color: #c9a849; font-weight: 600; }
-.aur-text-bright { color: #e8cc6e; font-weight: 600; }
+.aur-text-bright { color: #e8cc6e; font-weight: 600; text-shadow: 0 0 6px rgba(232, 204, 110, 0.32); }
 .aur-text-muted { color: #8a7a55; font-size: 12px; }
 .aur-text-center { text-align: center; }
 
-.aur-list { list-style: none; padding: 0; margin: 6px 0; }
+.aur-pilcrow { color: rgba(201, 168, 73, 0.65); font-family: "Cinzel Decorative", serif; margin-right: 4px; }
+
+.aur-list { list-style: none; padding: 0; margin: 6px 0; counter-reset: aur-li; }
 .aur-list li {
-    padding: 5px 0 5px 22px;
-    position: relative;
-    font-size: 13.5px;
-    color: #cdc0a0;
-    line-height: 1.6;
+    padding: 6px 0 6px 26px; position: relative;
+    font-size: 13.5px; color: #cdc0a0; line-height: 1.65;
+    counter-increment: aur-li;
 }
 .aur-list li::before {
-    content: "❖";
-    position: absolute;
-    left: 0;
-    color: #c9a849;
-    font-size: 9px;
-    top: 8px;
-    text-shadow: 0 0 4px rgba(201, 168, 73, 0.45);
+    position: absolute; left: 0; top: 7px;
+    color: #c9a849; font-family: "Cinzel Decorative", serif;
+    font-size: 12px;
+    text-shadow: 0 0 5px rgba(201, 168, 73, 0.45);
+}
+.aur-list li:nth-child(5n+1)::before { content: "✠"; }
+.aur-list li:nth-child(5n+2)::before { content: "❖"; }
+.aur-list li:nth-child(5n+3)::before { content: "⚜"; }
+.aur-list li:nth-child(5n+4)::before { content: "❦"; }
+.aur-list li:nth-child(5n)::before   { content: "✦"; }
+
+.aur-quote {
+    border-left: 2px solid rgba(201, 168, 73, 0.55);
+    border-right: 2px solid rgba(201, 168, 73, 0.30);
+    padding: 12px 22px 12px 28px;
+    margin: 14px 6px;
+    background: linear-gradient(180deg, rgba(74, 61, 16, 0.10) 0%, rgba(34, 26, 8, 0.18) 100%);
+    font-family: "Cormorant Garamond", serif;
+    font-style: italic; color: #c0ad7a;
+    font-size: 14px; line-height: 1.75;
+    position: relative; text-align: center;
+}
+.aur-quote::before {
+    content: "\201C"; position: absolute; top: -2px; left: 4px;
+    font-size: 38px; color: rgba(232, 204, 110, 0.42);
+    font-style: normal; font-family: "Cinzel Decorative", serif; line-height: 1;
+}
+.aur-quote::after {
+    content: "\201D"; position: absolute; bottom: -16px; right: 6px;
+    font-size: 38px; color: rgba(232, 204, 110, 0.42);
+    font-style: normal; font-family: "Cinzel Decorative", serif; line-height: 1;
+}
+.aur-quote .attrib {
+    display: block; margin-top: 8px;
+    font-style: normal; font-family: "Cinzel", serif;
+    font-size: 9.5px; color: rgba(201, 168, 73, 0.65);
+    letter-spacing: 4px; text-transform: uppercase;
 }
 
 .aur-info-row {
     display: flex; justify-content: space-between; align-items: center;
     padding: 5px 0;
-    border-bottom: 1px dotted rgba(201, 168, 73, 0.18);
+    border-bottom: 1px dotted rgba(201, 168, 73, 0.20);
     font-size: 13px;
 }
 .aur-info-row:last-child { border-bottom: none; }
 .aur-info-label {
-    font-family: "Cinzel", serif;
-    font-size: 10px;
-    color: #8a7a55;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
+    font-family: "Cinzel", serif; font-size: 10px;
+    color: #8a7a55; text-transform: uppercase; letter-spacing: 1.5px;
     flex-shrink: 0;
 }
 .aur-info-value { font-size: 13.5px; color: #cdc0a0; text-align: right; }
 
 .aur-ornament {
-    text-align: center;
-    font-size: 14px;
+    text-align: center; font-size: 14px;
     color: rgba(201, 168, 73, 0.55);
-    letter-spacing: 10px;
-    margin: 8px 0;
+    letter-spacing: 10px; margin: 8px 0;
+}
+.aur-trefoil {
+    text-align: center; margin: 6px 0;
+    color: rgba(201, 168, 73, 0.65);
+    font-size: 13px; letter-spacing: 6px;
+    font-family: "Cinzel Decorative", serif;
 }
 
 .aur-footer {
-    text-align: center;
-    margin-top: 16px;
+    text-align: center; margin-top: 18px;
     padding-top: 12px;
     font-family: "Cinzel", serif;
-    font-size: 9.5px;
-    color: rgba(201, 168, 73, 0.50);
-    letter-spacing: 2.5px;
+    font-size: 10px;
+    color: rgba(201, 168, 73, 0.55);
+    letter-spacing: 3px;
     text-transform: uppercase;
-    border-top: 1px solid rgba(201, 168, 73, 0.15);
+    border-top: 1px solid rgba(201, 168, 73, 0.18);
+    position: relative;
+}
+.aur-footer::before {
+    content: "✠"; position: absolute; top: -8px; left: 50%; transform: translateX(-50%);
+    color: #c9a849; font-size: 13px;
+    background: #0f0b06; padding: 0 10px;
+    text-shadow: 0 0 8px rgba(201, 168, 73, 0.55);
 }
 .aur-credit {
-    text-align: center;
-    margin-top: 6px;
-    font-family: "Cinzel", serif;
-    font-size: 8.5px;
+    text-align: center; margin-top: 6px;
+    font-family: "Cinzel", serif; font-size: 8.5px;
     color: rgba(201, 168, 73, 0.30);
-    letter-spacing: 2px;
-    font-style: italic;
+    letter-spacing: 2px; font-style: italic;
 }
-.aur-credit a { color: rgba(201, 168, 73, 0.40) !important; text-decoration: none !important; }
-.aur-credit a:hover { color: rgba(232, 204, 110, 0.65) !important; text-shadow: none !important; }
+.aur-credit a { color: rgba(201, 168, 73, 0.45) !important; text-decoration: none !important; }
+.aur-credit a:hover { color: rgba(232, 204, 110, 0.75) !important; text-shadow: none !important; }
 
 .aur-box::-webkit-scrollbar { width: 5px !important; }
 .aur-box::-webkit-scrollbar-track { background: rgba(8, 6, 3, 0.6) !important; }
-.aur-box::-webkit-scrollbar-thumb { background: rgba(201, 168, 73, 0.35) !important; }
-.aur-box::-webkit-scrollbar-thumb:hover { background: rgba(232, 204, 110, 0.55) !important; }
+.aur-box::-webkit-scrollbar-thumb { background: rgba(201, 168, 73, 0.40) !important; }
+.aur-box::-webkit-scrollbar-thumb:hover { background: rgba(232, 204, 110, 0.65) !important; }
 
 /* === PREVIEW PAGE LAYOUT === */
 .preview-page { max-width: 1100px; margin: 0 auto; }
 .preview-layout { display: flex; gap: 0; }
 .preview-main { flex: 1; padding: 18px; min-width: 0; }
 .preview-sidebar {
-    width: 290px;
-    padding: 18px;
-    flex-shrink: 0;
+    width: 290px; padding: 18px; flex-shrink: 0;
     border-left: 1px solid rgba(201, 168, 73, 0.18);
 }
 .preview-label {
-    font-family: "Cinzel", serif;
-    font-size: 9px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: #8a7a55;
-    margin-bottom: 5px;
+    font-family: "Cinzel", serif; font-size: 9px;
+    letter-spacing: 2px; text-transform: uppercase;
+    color: #8a7a55; margin-bottom: 5px;
 }
 .sidebar-stat { display: flex; justify-content: space-between; padding: 4px 0; font-size: 12.5px; }
 .sidebar-stat .ss-label {
-    color: #8a7a55;
-    font-family: "Cinzel", serif;
-    font-size: 10.5px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
+    color: #8a7a55; font-family: "Cinzel", serif;
+    font-size: 10.5px; letter-spacing: 1px; text-transform: uppercase;
 }
 .sidebar-stat .ss-val {
-    color: #e8cc6e;
-    font-family: "Cormorant Garamond", serif;
-    font-weight: 600;
-    font-size: 13px;
+    color: #e8cc6e; font-family: "Cormorant Garamond", serif;
+    font-weight: 600; font-size: 13px;
 }
 
-/* === DEMO BANNER === */
 .demo-banner {
     background: linear-gradient(90deg, #2a210a 0%, #4a3d10 50%, #2a210a 100%);
-    color: #e8cc6e;
-    text-align: center;
+    color: #e8cc6e; text-align: center;
     padding: 11px 16px;
-    font-family: "Cinzel", serif;
-    font-size: 11px;
-    letter-spacing: 2.5px;
-    text-transform: uppercase;
+    font-family: "Cinzel", serif; font-size: 11px;
+    letter-spacing: 2.5px; text-transform: uppercase;
     border-bottom: 1px solid rgba(201, 168, 73, 0.55);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.55);
 }
 .demo-banner .demo-tag { color: #f5deaa; font-weight: 600; }
 
-/* === RESPONSIVE === */
 @media (max-width: 860px) {
     .preview-layout { flex-direction: column; }
     .preview-sidebar { width: 100%; border-left: none; border-top: 1px solid rgba(201, 168, 73, 0.18); }
     .aur-territory { width: 100% !important; }
     .aur-row { flex-direction: column; align-items: center; }
-    .aur-box-half { width: 100% !important; height: auto !important; min-height: 180px; }
+    .aur-box-half { width: 100% !important; height: auto !important; min-height: 200px; }
     .aur-title { font-size: 46px; }
+    .aur-avatar-flank { display: none; }
+    .aur-dropcap { font-size: 38px; }
 }
 </style>
 </head>
 <body>
 
-<!-- === DEMO BANNER === -->
 <div class="demo-banner">
-    ❖ &nbsp; <span class="demo-tag">live preview</span> &nbsp;—&nbsp; the aurelian pride for cam &nbsp; ❖
+    ✠ &nbsp; <span class="demo-tag">live preview</span> &nbsp;—&nbsp; the aurelian pride · gothic edition · for cam &nbsp; ✠
 </div>
 
 <div class="preview-page">
 
-    <!-- === SIMULATED LIODEN NAVBAR === -->
     <nav class="navbar">
         <a href="#">Den</a>
         <a href="#">Crossroads</a>
@@ -595,101 +668,132 @@ input:focus, textarea:focus {
         <a href="#">FAQ</a>
     </nav>
 
-    <!-- === BREADCRUMB === -->
     <div class="breadcrumb">
-        <a href="#">Home</a>&nbsp; / &nbsp;<span>The Aurelian Pride</span>
+        <a href="#">Home</a>&nbsp; / &nbsp;<span>Kreta's Den</span>
         <span style="margin-left: auto; font-size: 10px; color: #8a7a55;">CSS by nub · #166079</span>
     </div>
 
-    <!-- === MAIN CONTAINER === -->
     <div class="container main">
         <div class="preview-layout">
 
             <!-- ============== MAIN COLUMN ============== -->
             <div class="preview-main">
 
-                <h1 style="font-family: 'UnifrakturMaguntia', cursive; font-size: 50px; margin-bottom: 0; letter-spacing: 1px; line-height: 1; text-transform: none; font-weight: 400;">The Aurelian Pride</h1>
+                <h1 style="font-family: 'UnifrakturMaguntia', cursive; font-size: 50px; margin-bottom: 0; letter-spacing: 1px; line-height: 1; text-transform: none; font-weight: 400;">Kreta's Den</h1>
                 <p style="font-size: 11px; color: #8a7a55; letter-spacing: 1.5px; font-family: 'Cinzel', serif; margin: 4px 0 18px;">TERRITORY · CAM · #583285</p>
 
                 <!-- ============================================ -->
-                <!-- TERRITORY DESCRIPTION (the actual den layout) -->
+                <!-- TERRITORY DESCRIPTION                         -->
                 <!-- ============================================ -->
                 <div class="aur-territory">
 
-                    <div class="aur-ornament">❖ &nbsp; ✦ &nbsp; ❖</div>
+                    <div class="aur-crest-row">⚜ &nbsp; ✠ &nbsp; ⚜ &nbsp; ✠ &nbsp; ⚜</div>
 
-                    <!-- DEN TITLE -->
                     <div class="aur-title">The Aurelian Pride</div>
 
-                    <!-- SUBTITLE -->
                     <div class="aur-subtitle">
                         Gold is a living god and rules in scorn,<br>
                         all earthly things but virtue
                     </div>
 
+                    <div class="aur-motto">· aurum · vivit · deus · est ·</div>
+
                     <div class="aur-divider"></div>
 
-                    <!-- AVATAR (rectangular gothic-framed) -->
+                    <!-- AVATAR -->
                     <div class="aur-avatar-wrap">
+                        <span class="aur-avatar-flank left">⚔</span>
+                        <span class="aur-avatar-crown">♔</span>
                         <a href="https://www.lioden.com/lion.php?mid=583285">
                             <span class="aur-avatar-frame">
                                 <img class="aur-avatar"
                                      src="placeholder-avatar.svg"
-                                     alt="The Aurelian King">
+                                     alt="Kreta — the Scarred King">
                                 <span class="aur-corner-bl"></span>
                                 <span class="aur-corner-br"></span>
                             </span>
                         </a>
+                        <span class="aur-avatar-flank right">⚔</span>
                     </div>
 
                     <!-- TAGS -->
-                    <div style="text-align: center; margin: 10px 0 4px;">
-                        <span class="aur-tag">she / her</span>
-                        <span class="aur-tag-bright">friend code: 583285</span>
+                    <div style="text-align: center; margin: 14px 0 4px;">
+                        <span class="aur-tag">they / them</span>
+                        <span class="aur-tag-bright">cam · #583285</span>
+                        <span class="aur-tag">decor enjoyer</span>
                     </div>
 
-                    <!-- DECORATIVE PAGE DIVIDER -->
+                    <!-- GRAND CREST DIVIDER + section: the king -->
+                    <div class="aur-crest-divider">
+                        <span class="aur-crest-medallion"><span>♔</span></span>
+                    </div>
                     <div class="aur-divider-full">
-                        <span class="aur-divider-mark">❖ &nbsp; the pride &nbsp; ❖</span>
+                        <span class="aur-divider-mark">
+                            <span class="cross">✠</span> the king <span class="cross">✠</span>
+                        </span>
                     </div>
 
-                    <!-- BOX 1 + BOX 2 side by side -->
+                    <!-- BOX 1 + BOX 2 -->
                     <div class="aur-row">
 
-                        <!-- BOX 1 -->
                         <div class="aur-box aur-box-half">
-                            <div class="aur-box-header">The King</div>
+                            <span class="aur-box-corner tl"></span>
+                            <span class="aur-box-corner tr"></span>
+                            <span class="aur-box-corner bl"></span>
+                            <span class="aur-box-corner br"></span>
+
+                            <div class="aur-box-numeral">— I —</div>
+                            <div class="aur-box-header">
+                                <span class="sym">♔</span> the king <span class="sym">⚔</span>
+                            </div>
+
                             <div class="aur-text">
-                                <span class="aur-text-bright">[KING'S NAME]</span> — write everything you'd like visitors to know about your sovereign here. His personality, his lore, the way he commands the dawn.
+                                <span class="aur-dropcap">T</span>he scarred king turns to you with kind eyes, welcoming you into his den. Even after receiving all these scars, <span class="aur-text-bright">Kreta</span> has stayed kind to all.
                             </div>
                             <br>
                             <div class="aur-text">
-                                Add scars, add stories, add the small quiet things that make him him. The box scrolls if your tale runs long.
+                                <span class="aur-pilcrow">¶</span>You automatically feel safe in his presence — a wise king that does anything to protect his pride, even those not born in it.
                             </div>
                             <br>
-                            <div class="aur-text-italic aur-text-center" style="font-size: 13px;">
-                                "every king casts a shadow —<br>his is the shape of gold."
+
+                            <div class="aur-quote">
+                                a king is not the throne he sits upon —<br>
+                                he is the shadow he casts over those he keeps
+                                <span class="attrib">— pride proverb —</span>
                             </div>
                         </div>
 
-                        <!-- BOX 2 -->
                         <div class="aur-box aur-box-half">
-                            <div class="aur-box-header">Pride</div>
+                            <span class="aur-box-corner tl"></span>
+                            <span class="aur-box-corner tr"></span>
+                            <span class="aur-box-corner bl"></span>
+                            <span class="aur-box-corner br"></span>
+
+                            <div class="aur-box-numeral">— II —</div>
+                            <div class="aur-box-header">
+                                <span class="sym">⚜</span> pride <span class="sym">⚜</span>
+                            </div>
+
                             <div class="aur-text">
-                                Tell the story of the <span class="aur-text-bright">Aurelian Pride</span> here. How it was founded, who walks its borders, what it stands for.
+                                <span class="aur-dropcap">A</span> hearth held by quiet strength — the <span class="aur-text-bright">Aurelian Pride</span> walks beneath the scarred king's mark, and every lioness who treads its borders is held the same.
                             </div>
                             <br>
                             <div class="aur-text">
-                                Lioness lore, hierarchies, sacred rites — anything that fills out the pride's character belongs in this box.
+                                <span class="aur-pilcrow">¶</span>Born or chosen, all are kept. Add your pride's story here — its hierarchies, its sacred rites, the stories it carries through dawn after dawn.
                             </div>
                             <br>
+
                             <div class="aur-info-row">
-                                <span class="aur-info-label">founded</span>
-                                <span class="aur-info-value">[generation]</span>
+                                <span class="aur-info-label">crowned</span>
+                                <span class="aur-info-value">Kreta &nbsp; ♔</span>
+                            </div>
+                            <div class="aur-info-row">
+                                <span class="aur-info-label">bannermen</span>
+                                <span class="aur-info-value">ᴡɪɴᴅʙʟᴜᴍᴇ · ᴘʀɪᴍᴀʟ</span>
                             </div>
                             <div class="aur-info-row">
                                 <span class="aur-info-label">size</span>
-                                <span class="aur-info-value">[#&nbsp;lionesses]</span>
+                                <span class="aur-info-value">35 lionesses &nbsp;·&nbsp; 16 cubs</span>
                             </div>
                             <div class="aur-info-row">
                                 <span class="aur-info-label">aesthetic</span>
@@ -699,22 +803,38 @@ input:focus, textarea:focus {
 
                     </div>
 
-                    <!-- DECORATIVE PAGE DIVIDER -->
+                    <!-- GRAND CREST DIVIDER + section: breeding goals -->
+                    <div class="aur-crest-divider">
+                        <span class="aur-crest-medallion"><span>❦</span></span>
+                    </div>
                     <div class="aur-divider-full">
-                        <span class="aur-divider-mark">❖ &nbsp; breeding goals &nbsp; ❖</span>
+                        <span class="aur-divider-mark">
+                            <span class="cross">✠</span> breeding goals <span class="cross">✠</span>
+                        </span>
                     </div>
 
-                    <!-- BOX 3 — full-width list -->
+                    <!-- BOX 3 -->
                     <div class="aur-box aur-box-full">
-                        <div class="aur-box-header">Breeding Goals</div>
+                        <span class="aur-box-corner tl"></span>
+                        <span class="aur-box-corner tr"></span>
+                        <span class="aur-box-corner bl"></span>
+                        <span class="aur-box-corner br"></span>
+
+                        <div class="aur-box-numeral">— III —</div>
+                        <div class="aur-box-header">
+                            <span class="sym">❦</span> breeding goals <span class="sym">❦</span>
+                        </div>
+
                         <ul class="aur-list">
                             <li><span class="aur-text-accent">Goal one</span> — describe the bloodline, the trait, the dream you're chasing.</li>
                             <li><span class="aur-text-accent">Goal two</span> — the second pillar of your breeding project.</li>
                             <li><span class="aur-text-accent">Goal three</span> — what colours, markings, or mutations you're pursuing.</li>
-                            <li><span class="aur-text-accent">Goal four</span> — every list item gets its own gold ❖ marker.</li>
+                            <li><span class="aur-text-accent">Goal four</span> — every list item gets its own gold ornament; symbols rotate automatically.</li>
                             <li><span class="aur-text-accent">Goal five</span> — add or remove rows freely.</li>
                         </ul>
-                        <br>
+
+                        <div class="aur-trefoil">❦ &nbsp; ✦ &nbsp; ❦</div>
+
                         <div class="aur-text-italic aur-text-center aur-text-sm">
                             "what the pride seeks, the pride becomes."
                         </div>
@@ -722,49 +842,48 @@ input:focus, textarea:focus {
 
                     <div class="aur-divider"></div>
 
-                    <div class="aur-ornament">❖ &nbsp; ✦ &nbsp; ❖</div>
+                    <div class="aur-ornament">✠ &nbsp; ❖ &nbsp; ✠</div>
 
                     <div class="aur-footer">
-                        The Aurelian Pride &nbsp; · &nbsp; cam &nbsp; · &nbsp; Lioden #583285
+                        the aurelian pride &nbsp; · &nbsp; cam &nbsp; · &nbsp; lioden #583285
                     </div>
+
                     <div class="aur-credit">
                         css &amp; layout by <a href="#">nub</a> · #166079
                     </div>
 
                 </div>
-                <!-- ===== END TERRITORY DESCRIPTION ===== -->
 
                 <!-- LION IMAGE PLACEHOLDER -->
                 <div style="text-align: center; padding: 30px 0 20px;">
                     <div style="font-size: 100px; opacity: 0.18; color: #c9a849;">🦁</div>
-                    <p style="font-family: 'Cinzel', serif; font-size: 10px; color: #8a7a55; letter-spacing: 1px; margin: 4px 0 0;">[ lion image renders here on lioden ]</p>
+                    <p style="font-family: 'Cinzel', serif; font-size: 10px; color: #8a7a55; letter-spacing: 1px; margin: 4px 0 0;">[ Kreta's lion image renders here on lioden ]</p>
                 </div>
 
-                <!-- COMMENT BOX SIMULATION -->
+                <!-- COMMENT BOX -->
                 <div class="panel">
                     <div class="panel-heading">comment box</div>
                     <div class="panel-body" style="padding: 0;">
                         <div class="chat_light">
                             <strong style="color: #c9a849;">camulats</strong>
-                            <span style="font-size: 10px; color: #8a7a55; font-family: 'Cinzel', serif; letter-spacing: 0.5px;">3rd may at 14:21</span>
-                            <br>this whole layout is divine — gold absolutely sings ❖
+                            <span style="font-size: 10px; color: #8a7a55; font-family: 'Cinzel', serif; letter-spacing: 0.5px;">10th may at 14:21</span>
+                            <br>this whole layout is divine — gold absolutely sings ✠
                         </div>
                         <div class="chat_dark">
-                            <strong style="color: #c9a849;">synarvis</strong>
-                            <span style="font-size: 10px; color: #8a7a55; font-family: 'Cinzel', serif; letter-spacing: 0.5px;">2nd may at 09:12</span>
-                            <br>the aurelian pride? immaculate name. may i request a stud?
+                            <strong style="color: #c9a849;">ezra | g2 mngwa</strong>
+                            <span style="font-size: 10px; color: #8a7a55; font-family: 'Cinzel', serif; letter-spacing: 0.5px;">9th may at 09:12</span>
+                            <br>Kreta looks like he stepped out of an illuminated manuscript ⚔
                         </div>
                         <div class="chat_light">
-                            <strong style="color: #c9a849;">visitor</strong>
-                            <span style="font-size: 10px; color: #8a7a55; font-family: 'Cinzel', serif; letter-spacing: 0.5px;">28th apr at 17:48</span>
-                            <br>who made this css? it's stunning ✦
+                            <strong style="color: #c9a849;">grayfoot211</strong>
+                            <span style="font-size: 10px; color: #8a7a55; font-family: 'Cinzel', serif; letter-spacing: 0.5px;">8th may at 17:48</span>
+                            <br>the dropcaps! the crests! who made this css?? ❦
                         </div>
                     </div>
                 </div>
 
-                <!-- POST INPUT -->
                 <div style="display: flex; gap: 8px; margin-top: 12px;">
-                    <input type="text" placeholder="Leave a comment...">
+                    <input type="text" placeholder="Leave a kind comment...">
                     <span class="btn" style="white-space: nowrap;">post</span>
                 </div>
 
@@ -773,7 +892,6 @@ input:focus, textarea:focus {
             <!-- ============== SIDEBAR COLUMN ============== -->
             <div class="preview-sidebar">
 
-                <!-- DATE / TIME -->
                 <div class="well">
                     <div style="font-family: 'Cinzel', serif; font-size: 10.5px; color: #a89260; letter-spacing: 1px; line-height: 1.85;">
                         10th May, 2026<br>
@@ -783,12 +901,10 @@ input:focus, textarea:focus {
                     </div>
                 </div>
 
-                <!-- BEETLES -->
                 <div class="well">
                     <span style="font-family: 'Cinzel', serif; font-size: 12px; color: #e8cc6e; letter-spacing: 1.5px;">🪲 56 rhino beetles</span>
                 </div>
 
-                <!-- KING PANEL -->
                 <div class="panel">
                     <div class="panel-heading">your king</div>
                     <div class="panel-body">
@@ -808,12 +924,11 @@ input:focus, textarea:focus {
                             <div class="preview-label">imp: 91%</div>
                             <div class="progress"><div class="progress-bar" style="width: 91%;">91%</div></div>
                         </div>
-                        <div class="sidebar-stat"><span class="ss-label">level</span><span class="ss-val">12</span></div>
+                        <div class="sidebar-stat"><span class="ss-label">level</span><span class="ss-val">13</span></div>
                         <div class="sidebar-stat"><span class="ss-label">impression</span><span class="ss-val">very impressive</span></div>
                     </div>
                 </div>
 
-                <!-- ACHIEVEMENTS -->
                 <div class="panel">
                     <div class="panel-heading">achievements</div>
                     <div class="panel-body">
@@ -821,7 +936,6 @@ input:focus, textarea:focus {
                     </div>
                 </div>
 
-                <!-- BOOKMARKS -->
                 <div class="panel">
                     <div class="panel-heading">bookmarks</div>
                     <div class="panel-body">
@@ -836,7 +950,6 @@ input:focus, textarea:focus {
                     </div>
                 </div>
 
-                <!-- GAME STATS -->
                 <div class="panel">
                     <div class="panel-heading">game stats</div>
                     <div class="panel-body">

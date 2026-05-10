@@ -1,21 +1,42 @@
 /* ============================================================
-   THE AURELIAN PRIDE — DEN CSS
-   Gothic & Gold Theme | Black + Aurelian Gold Palette
-   For cam · Lioden #583285
+   THE AURELIAN PRIDE — DEN CSS · GOTHIC EDITION
+   "the scarred king casts a shadow shaped like gold"
+   For cam · Kreta · Lioden #583285
    By nub · Lioden Commissions · #166079
    ============================================================ */
 
-/* === FONTS === */
-@import url('https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Cinzel:wght@400;500;600;700;900&family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Crimson+Pro:ital,wght@0,300;0,400;0,500;1,300&display=swap');
+/* === FONTS — Gothic blackletter, illuminated capitals, manuscript serifs === */
+@import url('https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=UnifrakturCook:wght@700&family=Pirata+One&family=MedievalSharp&family=Cinzel:wght@400;500;600;700;900&family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Crimson+Pro:ital,wght@0,300;0,400;0,500;1,300&display=swap');
 
-/* === PAGE BACKGROUND === */
+/* === CANDLE-FLICKER ANIMATION (used on title, headers, ornaments) === */
+@keyframes aur-flicker {
+    0%,  100% { opacity: 1;    text-shadow: 0 0 22px rgba(232, 204, 110, 0.55), 0 0 50px rgba(201, 168, 73, 0.22), 0 2px 4px rgba(0, 0, 0, 0.85); }
+    18%       { opacity: 0.88; text-shadow: 0 0 14px rgba(232, 204, 110, 0.35), 0 0 36px rgba(201, 168, 73, 0.15), 0 2px 4px rgba(0, 0, 0, 0.85); }
+    24%       { opacity: 1;    text-shadow: 0 0 26px rgba(232, 204, 110, 0.65), 0 0 60px rgba(201, 168, 73, 0.28), 0 2px 4px rgba(0, 0, 0, 0.85); }
+    47%       { opacity: 0.94; text-shadow: 0 0 18px rgba(232, 204, 110, 0.45), 0 0 42px rgba(201, 168, 73, 0.18), 0 2px 4px rgba(0, 0, 0, 0.85); }
+    73%       { opacity: 1;    text-shadow: 0 0 24px rgba(232, 204, 110, 0.60), 0 0 54px rgba(201, 168, 73, 0.25), 0 2px 4px rgba(0, 0, 0, 0.85); }
+}
+
+@keyframes aur-shimmer {
+    0%,  100% { background-position: 0% 50%; }
+    50%       { background-position: 100% 50%; }
+}
+
+@keyframes aur-ember {
+    0%,  100% { opacity: 0.55; transform: translateY(0); }
+    50%       { opacity: 0.85; transform: translateY(-1px); }
+}
+
+/* === PAGE BACKGROUND — vellum-over-ash === */
 body {
     background: #0a0805 !important;
     background-image:
         radial-gradient(ellipse at 20% 30%, rgba(75, 60, 18, 0.32) 0%, transparent 55%),
         radial-gradient(ellipse at 80% 70%, rgba(95, 75, 22, 0.22) 0%, transparent 55%),
         radial-gradient(ellipse at 50% 0%, rgba(140, 110, 35, 0.10) 0%, transparent 45%),
-        radial-gradient(ellipse at 50% 100%, rgba(80, 60, 15, 0.12) 0%, transparent 45%) !important;
+        radial-gradient(ellipse at 50% 100%, rgba(80, 60, 15, 0.12) 0%, transparent 45%),
+        /* vignette: dark edges, lit center */
+        radial-gradient(ellipse at 50% 50%, transparent 35%, rgba(0, 0, 0, 0.55) 100%) !important;
     background-attachment: fixed !important;
     color: #d4c8a8 !important;
     font-family: "Cormorant Garamond", "Georgia", serif !important;
@@ -27,28 +48,21 @@ body {
 div.container.main,
 .container.main {
     background: rgba(15, 11, 6, 0.94) !important;
-    border: 1px solid rgba(201, 168, 73, 0.20) !important;
+    border: 1px solid rgba(201, 168, 73, 0.22) !important;
     border-top: none !important;
     box-shadow: 0 0 40px rgba(0, 0, 0, 0.7), inset 0 0 90px rgba(0, 0, 0, 0.35) !important;
     color: #d4c8a8 !important;
 }
 
-.col-md-9 {
-    background: transparent !important;
-    color: #d4c8a8 !important;
-}
+.col-md-9 { background: transparent !important; color: #d4c8a8 !important; }
 
-/* === NAVIGATION BAR === */
-.topbar,
-.navbar,
-.navbar-default {
+/* === NAVBAR === */
+.topbar, .navbar, .navbar-default {
     background: linear-gradient(180deg, #110d06 0%, #08060300 100%) !important;
     border-bottom: 1px solid rgba(201, 168, 73, 0.32) !important;
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.55) !important;
 }
-
-.navbar-default .navbar-nav > li > a,
-.navbar a {
+.navbar-default .navbar-nav > li > a, .navbar a {
     color: #8a7a55 !important;
     font-family: "Cinzel", serif !important;
     text-transform: uppercase !important;
@@ -56,9 +70,7 @@ div.container.main,
     font-size: 11px !important;
     transition: all 0.3s ease !important;
 }
-
-.navbar-default .navbar-nav > li > a:hover,
-.navbar a:hover {
+.navbar-default .navbar-nav > li > a:hover, .navbar a:hover {
     color: #e8cc6e !important;
     text-shadow: 0 0 8px rgba(232, 204, 110, 0.45) !important;
 }
@@ -71,7 +83,6 @@ div.container.main,
     font-family: "Cinzel", serif !important;
     font-size: 11px !important;
 }
-
 .breadcrumb a { color: #c9a849 !important; }
 .breadcrumb a:hover { color: #e8cc6e !important; }
 
@@ -83,7 +94,6 @@ div.container.main,
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.4), inset 0 0 30px rgba(0, 0, 0, 0.25) !important;
     color: #d4c8a8 !important;
 }
-
 .panel-heading {
     background: linear-gradient(180deg, rgba(74, 61, 16, 0.55) 0%, rgba(34, 26, 8, 0.75) 100%) !important;
     color: #e8cc6e !important;
@@ -94,25 +104,16 @@ div.container.main,
     border-bottom: 1px solid rgba(201, 168, 73, 0.32) !important;
     text-align: center !important;
 }
-
-.panel-body {
-    background: transparent !important;
-    color: #d4c8a8 !important;
-}
+.panel-body { background: transparent !important; color: #d4c8a8 !important; }
 
 /* === LINKS === */
-a:link,
-a {
+a:link, a {
     color: #c9a849 !important;
     text-decoration: none !important;
     transition: all 0.3s ease !important;
 }
-
 a:visited { color: #8b7320 !important; }
-a:hover {
-    color: #e8cc6e !important;
-    text-shadow: 0 0 6px rgba(232, 204, 110, 0.45) !important;
-}
+a:hover { color: #e8cc6e !important; text-shadow: 0 0 6px rgba(232, 204, 110, 0.45) !important; }
 
 /* === HEADINGS === */
 h1, h2, h3, h4, h5, h6 {
@@ -131,7 +132,6 @@ h1, h2, h3, h4, h5, h6 {
     box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.55) !important;
     height: 18px !important;
 }
-
 .progress-bar {
     background: linear-gradient(90deg, #4a3d10 0%, #8b7320 50%, #c9a849 100%) !important;
     box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.35), 0 0 8px rgba(201, 168, 73, 0.30) !important;
@@ -157,7 +157,6 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 11px !important;
     transition: all 0.3s ease !important;
 }
-
 .btn:hover {
     background: linear-gradient(180deg, #4a3d10 0%, #2a210a 100%) !important;
     border-color: rgba(232, 204, 110, 0.60) !important;
@@ -165,35 +164,23 @@ h1, h2, h3, h4, h5, h6 {
     box-shadow: 0 0 12px rgba(201, 168, 73, 0.32) !important;
 }
 
-/* === INPUT FIELDS === */
-input[type="text"],
-input[type="number"],
-input[type="password"],
-input[type="email"],
-select,
-textarea,
-.form-control {
+/* === INPUTS === */
+input[type="text"], input[type="number"], input[type="password"], input[type="email"],
+select, textarea, .form-control {
     background: rgba(8, 6, 3, 0.85) !important;
     border: 1px solid rgba(201, 168, 73, 0.25) !important;
     border-radius: 0 !important;
     color: #d4c8a8 !important;
     font-family: "Cormorant Garamond", serif !important;
 }
-
-input:focus,
-select:focus,
-textarea:focus,
-.form-control:focus {
+input:focus, select:focus, textarea:focus, .form-control:focus {
     border-color: rgba(232, 204, 110, 0.55) !important;
     box-shadow: 0 0 10px rgba(201, 168, 73, 0.32) !important;
     outline: none !important;
 }
 
 /* === LION IMAGE AREA === */
-div#lion_image > div {
-    background-color: transparent !important;
-    border: none !important;
-}
+div#lion_image > div { background-color: transparent !important; border: none !important; }
 
 /* === ALERTS / WELLS === */
 .well {
@@ -203,7 +190,6 @@ div#lion_image > div {
     color: #d4c8a8 !important;
     box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.4) !important;
 }
-
 .alert {
     background: rgba(74, 61, 16, 0.30) !important;
     border: 1px solid rgba(201, 168, 73, 0.35) !important;
@@ -218,68 +204,122 @@ div#lion_image > div {
     background: rgba(18, 13, 7, 0.75) !important;
 }
 
-/* === CUSTOM SCROLLBAR === */
-::-webkit-scrollbar {
-    width: 8px !important;
-    height: 8px !important;
-}
-
-::-webkit-scrollbar-track {
-    background: #0a0805 !important;
-}
-
+/* === SCROLLBAR === */
+::-webkit-scrollbar { width: 8px !important; height: 8px !important; }
+::-webkit-scrollbar-track { background: #0a0805 !important; }
 ::-webkit-scrollbar-thumb {
     background: linear-gradient(180deg, #4a3d10 0%, #1a1408 100%) !important;
     border: 1px solid rgba(201, 168, 73, 0.32) !important;
 }
-
 ::-webkit-scrollbar-thumb:hover {
     background: linear-gradient(180deg, #8b7320 0%, #4a3d10 100%) !important;
 }
 
 /* ============================================================
-   TERRITORY DESCRIPTION BOX — THE AURELIAN PRIDE
+   ✠  TERRITORY DESCRIPTION — THE AURELIAN PRIDE  ✠
    ============================================================ */
 
-/* --- Main Wrapper --- */
+/* --- Main Wrapper, with parchment overlay + double-line gold frame --- */
 .aur-territory {
     width: 700px;
     margin: 12px auto;
     font-family: "Cormorant Garamond", "Georgia", serif;
     color: #d4c8a8;
     line-height: 1.7;
+    position: relative;
+    padding: 8px 4px 12px;
+
+    /* Subtle vellum / aged-paper overlay */
+    background-image:
+        radial-gradient(ellipse at 30% 20%, rgba(232, 204, 110, 0.020) 0%, transparent 55%),
+        radial-gradient(ellipse at 70% 80%, rgba(232, 204, 110, 0.015) 0%, transparent 55%);
 }
 
-/* --- Grand Title (Gothic Blackletter) --- */
+/* Outer double gold frame (the manuscript "border") */
+.aur-territory::before,
+.aur-territory::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent 0%, rgba(201, 168, 73, 0.45) 15%, #c9a849 50%, rgba(201, 168, 73, 0.45) 85%, transparent 100%);
+    pointer-events: none;
+}
+.aur-territory::before { top: 0; box-shadow: 0 4px 0 -3px rgba(201, 168, 73, 0.35); }
+.aur-territory::after  { bottom: 0; box-shadow: 0 -4px 0 -3px rgba(201, 168, 73, 0.35); }
+
+/* --- TOP CREST ROW (flanking ornaments around the title) --- */
+.aur-crest-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+    margin: 4px 0 -2px;
+    color: rgba(201, 168, 73, 0.55);
+    font-size: 16px;
+    letter-spacing: 12px;
+    font-family: "Cinzel Decorative", serif;
+    animation: aur-ember 5s ease-in-out infinite;
+}
+
+/* --- GRAND TITLE (gothic blackletter, candle-flicker glow) --- */
 .aur-title {
     text-align: center;
-    padding: 20px 10px 4px;
+    padding: 8px 10px 4px;
     margin: 0;
-    font-family: "UnifrakturMaguntia", "Cinzel Decorative", serif;
+    font-family: "UnifrakturMaguntia", "UnifrakturCook", "Pirata One", serif;
     font-size: 64px;
     font-weight: 400;
     color: #e8cc6e;
     letter-spacing: 2px;
     line-height: 1;
     text-shadow:
-        0 0 22px rgba(201, 168, 73, 0.45),
-        0 0 50px rgba(201, 168, 73, 0.18),
+        0 0 22px rgba(232, 204, 110, 0.55),
+        0 0 50px rgba(201, 168, 73, 0.22),
         0 2px 4px rgba(0, 0, 0, 0.85);
+    animation: aur-flicker 7s ease-in-out infinite;
+    position: relative;
 }
 
-/* --- Subtitle --- */
+/* Gothic crosses flanking the title */
+.aur-title::before,
+.aur-title::after {
+    content: "✠";
+    color: #c9a849;
+    font-family: "Cinzel Decorative", serif;
+    font-size: 22px;
+    vertical-align: super;
+    margin: 0 18px;
+    text-shadow: 0 0 8px rgba(201, 168, 73, 0.55);
+}
+
+/* --- SUBTITLE (italic vellum-quote) --- */
 .aur-subtitle {
     text-align: center;
     font-family: "Cormorant Garamond", serif;
     font-style: italic;
-    font-size: 14px;
+    font-size: 14.5px;
     color: #a89260;
-    letter-spacing: 1.5px;
-    margin: 6px 30px 6px;
-    line-height: 1.4;
+    letter-spacing: 1.2px;
+    margin: 8px 30px 4px;
+    line-height: 1.5;
 }
 
-/* --- Decorative Dividers --- */
+/* --- LATIN MOTTO BANNER (small caps, very faint) --- */
+.aur-motto {
+    text-align: center;
+    font-family: "Cinzel", serif;
+    font-size: 9px;
+    color: rgba(201, 168, 73, 0.55);
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    margin: 6px 0 2px;
+}
+
+/* === DECORATIVE DIVIDERS (three tiers) === */
+
+/* Tier 1: subtle inline divider with center diamond */
 .aur-divider {
     width: 55%;
     margin: 14px auto;
@@ -288,7 +328,6 @@ div#lion_image > div {
     border: none;
     position: relative;
 }
-
 .aur-divider::before {
     content: "❖";
     position: absolute;
@@ -299,26 +338,25 @@ div#lion_image > div {
     font-size: 11px;
     background: #15110a;
     padding: 0 8px;
+    text-shadow: 0 0 6px rgba(201, 168, 73, 0.45);
 }
 
+/* Tier 2: full-width divider with gothic cross + section label */
 .aur-divider-full {
     width: 100%;
-    margin: 18px 0 14px;
+    margin: 20px 0 16px;
     height: 18px;
     display: flex;
     align-items: center;
     gap: 12px;
     border: none;
 }
-
-.aur-divider-full::before,
-.aur-divider-full::after {
+.aur-divider-full::before, .aur-divider-full::after {
     content: "";
     flex: 1;
     height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(201, 168, 73, 0.35), rgba(232, 204, 110, 0.45), rgba(201, 168, 73, 0.35), transparent);
+    background: linear-gradient(90deg, transparent, rgba(201, 168, 73, 0.35), rgba(232, 204, 110, 0.55), rgba(201, 168, 73, 0.35), transparent);
 }
-
 .aur-divider-mark {
     font-family: "Cinzel", serif;
     font-size: 10px;
@@ -326,132 +364,186 @@ div#lion_image > div {
     letter-spacing: 5px;
     text-transform: uppercase;
     white-space: nowrap;
-    text-shadow: 0 0 6px rgba(201, 168, 73, 0.35);
+    text-shadow: 0 0 6px rgba(201, 168, 73, 0.45);
+}
+.aur-divider-mark .cross {
+    color: #e8cc6e;
+    font-size: 13px;
+    margin: 0 6px;
+    vertical-align: -1px;
+    text-shadow: 0 0 10px rgba(232, 204, 110, 0.55);
 }
 
-/* --- Avatar (RECTANGULAR, gothic-framed — NOT round) --- */
+/* Tier 3: GRAND CREST DIVIDER (with central medallion) */
+.aur-crest-divider {
+    text-align: center;
+    margin: 24px 0 18px;
+    position: relative;
+    height: 36px;
+}
+.aur-crest-divider::before,
+.aur-crest-divider::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 38%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(201, 168, 73, 0.45), rgba(232, 204, 110, 0.65), rgba(201, 168, 73, 0.45), transparent);
+}
+.aur-crest-divider::before { left: 0; }
+.aur-crest-divider::after  { right: 0; }
+.aur-crest-medallion {
+    display: inline-block;
+    position: relative;
+    width: 36px;
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+    color: #e8cc6e;
+    font-family: "Cinzel Decorative", serif;
+    font-size: 18px;
+    border: 1px solid rgba(201, 168, 73, 0.55);
+    background: radial-gradient(circle at 50% 40%, rgba(232, 204, 110, 0.18) 0%, rgba(15, 11, 6, 0.95) 70%);
+    box-shadow:
+        0 0 0 3px rgba(15, 11, 6, 0.95),
+        0 0 0 4px rgba(201, 168, 73, 0.30),
+        0 0 14px rgba(201, 168, 73, 0.35);
+    transform: rotate(45deg);
+}
+.aur-crest-medallion span {
+    display: inline-block;
+    transform: rotate(-45deg);
+    text-shadow: 0 0 8px rgba(232, 204, 110, 0.55);
+}
+
+/* === AVATAR — Cathedral-arch frame, NOT round === */
 .aur-avatar-wrap {
     text-align: center;
-    margin: 16px 0 8px;
+    margin: 16px 0 6px;
+    position: relative;
+}
+
+/* Crown floating above the frame */
+.aur-avatar-crown {
+    display: block;
+    margin: 0 auto -8px;
+    color: #e8cc6e;
+    font-size: 22px;
+    line-height: 1;
+    letter-spacing: 6px;
+    text-shadow:
+        0 0 10px rgba(232, 204, 110, 0.65),
+        0 0 22px rgba(201, 168, 73, 0.35);
+    animation: aur-flicker 6s ease-in-out infinite;
 }
 
 .aur-avatar-frame {
     display: inline-block;
     position: relative;
-    padding: 8px;
-    background: linear-gradient(135deg, rgba(201, 168, 73, 0.18) 0%, rgba(74, 61, 16, 0.45) 100%);
-    border: 1px solid rgba(201, 168, 73, 0.45);
+    padding: 9px;
+    background:
+        linear-gradient(135deg, rgba(201, 168, 73, 0.22) 0%, rgba(74, 61, 16, 0.50) 100%);
+    border: 1px solid rgba(201, 168, 73, 0.55);
     box-shadow:
         0 0 0 1px rgba(8, 6, 3, 0.95),
-        0 0 0 2px rgba(232, 204, 110, 0.20),
-        0 4px 18px rgba(0, 0, 0, 0.6),
-        inset 0 0 18px rgba(232, 204, 110, 0.08);
+        0 0 0 2px rgba(232, 204, 110, 0.22),
+        0 4px 22px rgba(0, 0, 0, 0.65),
+        inset 0 0 22px rgba(232, 204, 110, 0.10);
     transition: all 0.4s ease;
 }
 
+/* Top corner pieces */
 .aur-avatar-frame::before,
 .aur-avatar-frame::after {
     content: "";
     position: absolute;
-    width: 14px;
-    height: 14px;
+    width: 16px;
+    height: 16px;
     border: 1px solid #c9a849;
     pointer-events: none;
 }
+.aur-avatar-frame::before { top: -3px; left: -3px;  border-right: none; border-bottom: none; }
+.aur-avatar-frame::after  { top: -3px; right: -3px; border-left: none;  border-bottom: none; }
 
-/* Top-left & top-right corner ornaments */
-.aur-avatar-frame::before {
-    top: -2px;
-    left: -2px;
-    border-right: none;
-    border-bottom: none;
+/* Bottom corner spans */
+.aur-corner-bl, .aur-corner-br {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border: 1px solid #c9a849;
+    pointer-events: none;
 }
+.aur-corner-bl { bottom: -3px; left: -3px;  border-right: none; border-top: none; }
+.aur-corner-br { bottom: -3px; right: -3px; border-left: none;  border-top: none; }
 
-.aur-avatar-frame::after {
-    top: -2px;
-    right: -2px;
-    border-left: none;
-    border-bottom: none;
-}
-
-/* Avatar image itself — squared, no border-radius */
+/* The avatar image — squared with cathedral-arch top via clip-path */
 .aur-avatar {
-    width: 110px;
-    height: 110px;
+    width: 130px;
+    height: 150px;
     object-fit: cover;
     display: block;
     border-radius: 0 !important;
     border: 1px solid rgba(74, 61, 16, 0.85);
     background: #0a0805;
-    filter: saturate(0.92) contrast(1.02);
+    filter: saturate(0.92) contrast(1.05);
     transition: all 0.4s ease;
+    /* Cathedral-arch / pointed-arch clip — sharp bottom, arched top */
+    clip-path: path('M 0 65 Q 0 0, 65 0 Q 130 0, 130 65 L 130 150 L 0 150 Z');
 }
 
 .aur-avatar-frame:hover {
-    border-color: rgba(232, 204, 110, 0.85);
+    border-color: rgba(232, 204, 110, 0.95);
     box-shadow:
         0 0 0 1px rgba(8, 6, 3, 0.95),
-        0 0 0 2px rgba(232, 204, 110, 0.45),
-        0 6px 22px rgba(201, 168, 73, 0.32),
-        inset 0 0 22px rgba(232, 204, 110, 0.14);
+        0 0 0 2px rgba(232, 204, 110, 0.55),
+        0 6px 28px rgba(201, 168, 73, 0.42),
+        inset 0 0 26px rgba(232, 204, 110, 0.18);
 }
+.aur-avatar-frame:hover .aur-avatar { filter: saturate(1.05) contrast(1.08); }
 
-.aur-avatar-frame:hover .aur-avatar {
-    filter: saturate(1.05) contrast(1.06);
-}
-
-/* Bottom corner ornaments via spans inside the frame */
-.aur-avatar-frame .aur-corner-bl,
-.aur-avatar-frame .aur-corner-br {
+/* Sword-flank ornaments around the avatar */
+.aur-avatar-flank {
     position: absolute;
-    width: 14px;
-    height: 14px;
-    border: 1px solid #c9a849;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(201, 168, 73, 0.55);
+    font-size: 22px;
     pointer-events: none;
+    text-shadow: 0 0 8px rgba(201, 168, 73, 0.45);
 }
+.aur-avatar-flank.left  { left:  calc(50% - 130px); }
+.aur-avatar-flank.right { right: calc(50% - 130px); }
 
-.aur-avatar-frame .aur-corner-bl {
-    bottom: -2px;
-    left: -2px;
-    border-right: none;
-    border-top: none;
-}
-
-.aur-avatar-frame .aur-corner-br {
-    bottom: -2px;
-    right: -2px;
-    border-left: none;
-    border-top: none;
-}
-
-/* --- Tags --- */
-.aur-tag {
+/* === WAX-SEAL TAGS === */
+.aur-tag, .aur-tag-bright {
     display: inline-block;
-    background: rgba(74, 61, 16, 0.25);
-    border: 1px solid rgba(201, 168, 73, 0.45);
+    font-family: "Cinzel", serif;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 4px 14px;
+    margin: 3px;
+    position: relative;
+    border: 1px solid rgba(201, 168, 73, 0.55);
+    background:
+        radial-gradient(ellipse at 30% 25%, rgba(232, 204, 110, 0.18) 0%, transparent 55%),
+        linear-gradient(135deg, rgba(74, 61, 16, 0.40) 0%, rgba(34, 26, 8, 0.65) 100%);
     color: #c9a849;
-    font-family: "Cinzel", serif;
-    font-size: 10px;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    padding: 3px 12px;
-    margin: 2px;
+    box-shadow:
+        inset 0 1px 0 rgba(232, 204, 110, 0.18),
+        inset 0 -1px 2px rgba(0, 0, 0, 0.45),
+        0 1px 3px rgba(0, 0, 0, 0.5);
 }
-
 .aur-tag-bright {
-    display: inline-block;
-    background: rgba(232, 204, 110, 0.10);
-    border: 1px solid rgba(232, 204, 110, 0.55);
     color: #e8cc6e;
-    font-family: "Cinzel", serif;
-    font-size: 10px;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    padding: 3px 12px;
-    margin: 2px;
+    border-color: rgba(232, 204, 110, 0.75);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 230, 150, 0.28),
+        inset 0 -1px 2px rgba(0, 0, 0, 0.45),
+        0 0 10px rgba(232, 204, 110, 0.18);
 }
 
-/* --- Two-Column Container --- */
+/* === ROW + BOXES === */
 .aur-row {
     display: flex;
     justify-content: center;
@@ -459,198 +551,226 @@ div#lion_image > div {
     margin: 6px 0;
 }
 
-/* --- Content Boxes --- */
 .aur-box {
-    background: rgba(18, 13, 7, 0.88);
+    background:
+        linear-gradient(180deg, rgba(22, 16, 9, 0.92) 0%, rgba(16, 11, 6, 0.92) 100%);
     border: 1px solid rgba(201, 168, 73, 0.30);
-    padding: 16px 18px;
+    padding: 18px 20px 16px;
     box-shadow:
         inset 0 0 35px rgba(0, 0, 0, 0.4),
-        0 2px 12px rgba(0, 0, 0, 0.45);
+        0 2px 14px rgba(0, 0, 0, 0.50);
     position: relative;
     transition: all 0.4s ease;
 }
 
-/* Top & bottom hairlines */
+/* Inner double-line gold frame */
 .aur-box::before {
     content: "";
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(232, 204, 110, 0.35), transparent);
+    top: 4px; left: 4px; right: 4px; bottom: 4px;
+    border: 1px solid rgba(201, 168, 73, 0.18);
+    pointer-events: none;
 }
-
+/* Top hairline accent */
 .aur-box::after {
     content: "";
     position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    top: 0; left: 0; right: 0;
     height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(201, 168, 73, 0.20), transparent);
+    background: linear-gradient(90deg, transparent, rgba(232, 204, 110, 0.55), transparent);
 }
 
-/* Hover */
+/* Filigree corner ornaments — inner span overlays */
+.aur-box-corner {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border: 1px solid rgba(201, 168, 73, 0.60);
+    pointer-events: none;
+}
+.aur-box-corner.tl { top: -1px; left: -1px;   border-right: none; border-bottom: none; }
+.aur-box-corner.tr { top: -1px; right: -1px;  border-left: none;  border-bottom: none; }
+.aur-box-corner.bl { bottom: -1px; left: -1px; border-right: none; border-top: none; }
+.aur-box-corner.br { bottom: -1px; right: -1px; border-left: none;  border-top: none; }
+
+/* Hover: gold-leaf shimmer + lift */
 .aur-box:hover {
-    border-color: rgba(232, 204, 110, 0.55);
+    border-color: rgba(232, 204, 110, 0.65);
     box-shadow:
-        inset 0 0 35px rgba(0, 0, 0, 0.35),
-        0 4px 18px rgba(201, 168, 73, 0.18);
+        inset 0 0 35px rgba(0, 0, 0, 0.30),
+        0 4px 22px rgba(201, 168, 73, 0.22);
+}
+.aur-box:hover::after {
+    background: linear-gradient(90deg, transparent, rgba(232, 204, 110, 0.85), transparent);
 }
 
-/* Half-width box */
-.aur-box-half {
-    width: 345px;
-    height: 250px;
-    overflow-y: auto;
-}
+.aur-box-half { width: 345px; height: 270px; overflow-y: auto; }
+.aur-box-full { width: 100%; min-height: 80px; max-height: 420px; overflow-y: auto; }
 
-/* Full-width box */
-.aur-box-full {
-    width: 100%;
-    min-height: 80px;
-    max-height: 380px;
-    overflow-y: auto;
-}
-
-/* Quote / pull-quote variant */
-.aur-box-quote {
-    background: rgba(15, 11, 6, 0.7);
-    border: 1px solid rgba(201, 168, 73, 0.22);
+/* === BOX HEADER (Roman numeral above + symbol-flanked title) === */
+.aur-box-numeral {
     text-align: center;
-    padding: 18px 24px;
+    font-family: "Cinzel Decorative", serif;
+    font-size: 11px;
+    color: rgba(201, 168, 73, 0.55);
+    letter-spacing: 4px;
+    margin-bottom: 2px;
 }
-
-/* --- Box Header --- */
 .aur-box-header {
-    font-family: "Cinzel", serif;
-    font-size: 13px;
-    font-weight: 600;
+    font-family: "Cinzel Decorative", "Cinzel", serif;
+    font-size: 14px;
+    font-weight: 700;
     color: #e8cc6e;
     text-transform: uppercase;
     letter-spacing: 2.5px;
     text-align: center;
-    margin-bottom: 12px;
+    margin: 0 0 12px;
     padding-bottom: 9px;
     border-bottom: 1px solid rgba(201, 168, 73, 0.32);
-    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6), 0 0 10px rgba(201, 168, 73, 0.18);
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6), 0 0 12px rgba(201, 168, 73, 0.32);
     position: relative;
 }
-
+.aur-box-header .sym {
+    display: inline-block;
+    margin: 0 10px;
+    color: #c9a849;
+    font-size: 14px;
+    vertical-align: -1px;
+    text-shadow: 0 0 8px rgba(201, 168, 73, 0.55);
+}
 .aur-box-header::after {
     content: "";
     display: block;
     width: 32px;
     height: 1px;
-    background: rgba(232, 204, 110, 0.45);
+    background: rgba(232, 204, 110, 0.55);
     margin: 7px auto 0;
 }
 
-/* --- Text Styles --- */
-.aur-text {
-    font-size: 14px;
-    color: #cdc0a0;
-    line-height: 1.75;
-}
-
-.aur-text b,
-.aur-text strong {
+/* === DROP-CAP (illuminated initial) === */
+.aur-dropcap {
+    float: left;
+    font-family: "UnifrakturMaguntia", "Cinzel Decorative", serif;
+    font-size: 48px;
+    line-height: 0.85;
     color: #e8cc6e;
-    font-weight: 600;
+    margin: 4px 8px 0 0;
+    padding: 4px 6px 2px;
+    text-shadow:
+        0 0 12px rgba(232, 204, 110, 0.45),
+        0 2px 4px rgba(0, 0, 0, 0.7);
+    border: 1px solid rgba(201, 168, 73, 0.35);
+    background: linear-gradient(135deg, rgba(74, 61, 16, 0.30) 0%, rgba(34, 26, 8, 0.55) 100%);
+    box-shadow: inset 0 0 12px rgba(232, 204, 110, 0.10);
 }
 
-.aur-text-sm {
-    font-size: 12px;
-    color: #a89260;
-    line-height: 1.65;
-}
-
-.aur-text-italic {
-    font-style: italic;
-    color: #b0a070;
-}
-
-.aur-text-accent {
-    color: #c9a849;
-    font-weight: 600;
-}
-
-.aur-text-bright {
-    color: #e8cc6e;
-    font-weight: 600;
-}
-
-.aur-text-muted {
-    color: #8a7a55;
-    font-size: 12px;
-}
-
+/* === TEXT STYLES === */
+.aur-text { font-size: 14px; color: #cdc0a0; line-height: 1.78; }
+.aur-text b, .aur-text strong { color: #e8cc6e; font-weight: 600; }
+.aur-text-sm { font-size: 12px; color: #a89260; line-height: 1.65; }
+.aur-text-italic { font-style: italic; color: #b0a070; }
+.aur-text-accent { color: #c9a849; font-weight: 600; }
+.aur-text-bright { color: #e8cc6e; font-weight: 600; text-shadow: 0 0 6px rgba(232, 204, 110, 0.32); }
+.aur-text-muted { color: #8a7a55; font-size: 12px; }
 .aur-text-center { text-align: center; }
 
-/* --- List (Breeding Goals etc) --- */
+/* Verse/paragraph marker (¶) */
+.aur-pilcrow {
+    color: rgba(201, 168, 73, 0.65);
+    font-family: "Cinzel Decorative", serif;
+    margin-right: 4px;
+}
+
+/* === LIST (rotating gothic glyphs per item) === */
 .aur-list {
     list-style: none;
     padding: 0;
     margin: 6px 0;
+    counter-reset: aur-li;
 }
-
 .aur-list li {
-    padding: 5px 0 5px 22px;
+    padding: 6px 0 6px 26px;
     position: relative;
     font-size: 13.5px;
     color: #cdc0a0;
-    line-height: 1.6;
+    line-height: 1.65;
+    counter-increment: aur-li;
 }
-
 .aur-list li::before {
-    content: "❖";
     position: absolute;
     left: 0;
+    top: 7px;
     color: #c9a849;
-    font-size: 9px;
-    top: 8px;
-    text-shadow: 0 0 4px rgba(201, 168, 73, 0.45);
+    font-family: "Cinzel Decorative", serif;
+    font-size: 12px;
+    text-shadow: 0 0 5px rgba(201, 168, 73, 0.45);
 }
+/* Cycle through gothic glyphs */
+.aur-list li:nth-child(5n+1)::before { content: "✠"; }
+.aur-list li:nth-child(5n+2)::before { content: "❖"; }
+.aur-list li:nth-child(5n+3)::before { content: "⚜"; }
+.aur-list li:nth-child(5n+4)::before { content: "❦"; }
+.aur-list li:nth-child(5n)::before   { content: "✦"; }
 
-/* --- Quote / Lore Block --- */
+/* === GOTHIC PULL-QUOTE === */
 .aur-quote {
     border-left: 2px solid rgba(201, 168, 73, 0.55);
-    padding: 10px 16px;
-    margin: 10px 0;
-    background: rgba(74, 61, 16, 0.12);
+    border-right: 2px solid rgba(201, 168, 73, 0.30);
+    padding: 12px 22px 12px 28px;
+    margin: 14px 6px;
+    background:
+        linear-gradient(180deg, rgba(74, 61, 16, 0.10) 0%, rgba(34, 26, 8, 0.18) 100%);
+    font-family: "Cormorant Garamond", serif;
     font-style: italic;
-    color: #b8a575;
-    font-size: 13.5px;
-    line-height: 1.7;
+    color: #c0ad7a;
+    font-size: 14px;
+    line-height: 1.75;
     position: relative;
+    text-align: center;
 }
-
 .aur-quote::before {
     content: "\201C";
     position: absolute;
-    top: 2px;
-    left: 6px;
-    font-size: 28px;
-    color: rgba(201, 168, 73, 0.30);
+    top: -2px;
+    left: 4px;
+    font-size: 38px;
+    color: rgba(232, 204, 110, 0.42);
     font-style: normal;
     font-family: "Cinzel Decorative", serif;
     line-height: 1;
 }
+.aur-quote::after {
+    content: "\201D";
+    position: absolute;
+    bottom: -16px;
+    right: 6px;
+    font-size: 38px;
+    color: rgba(232, 204, 110, 0.42);
+    font-style: normal;
+    font-family: "Cinzel Decorative", serif;
+    line-height: 1;
+}
+.aur-quote .attrib {
+    display: block;
+    margin-top: 8px;
+    font-style: normal;
+    font-family: "Cinzel", serif;
+    font-size: 9.5px;
+    color: rgba(201, 168, 73, 0.65);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
 
-/* --- Info Row --- */
+/* === INFO ROW === */
 .aur-info-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 5px 0;
-    border-bottom: 1px dotted rgba(201, 168, 73, 0.18);
+    border-bottom: 1px dotted rgba(201, 168, 73, 0.20);
     font-size: 13px;
 }
-
 .aur-info-row:last-child { border-bottom: none; }
-
 .aur-info-label {
     font-family: "Cinzel", serif;
     font-size: 10px;
@@ -659,14 +779,9 @@ div#lion_image > div {
     letter-spacing: 1.5px;
     flex-shrink: 0;
 }
+.aur-info-value { font-size: 13.5px; color: #cdc0a0; text-align: right; }
 
-.aur-info-value {
-    font-size: 13.5px;
-    color: #cdc0a0;
-    text-align: right;
-}
-
-/* --- Ornament --- */
+/* === ORNAMENTS (decorative-only rows) === */
 .aur-ornament {
     text-align: center;
     font-size: 14px;
@@ -675,20 +790,42 @@ div#lion_image > div {
     margin: 8px 0;
 }
 
-/* --- Footer --- */
-.aur-footer {
+/* Trefoil ornament — for after pull-quotes */
+.aur-trefoil {
     text-align: center;
-    margin-top: 16px;
-    padding-top: 12px;
-    font-family: "Cinzel", serif;
-    font-size: 9.5px;
-    color: rgba(201, 168, 73, 0.50);
-    letter-spacing: 2.5px;
-    text-transform: uppercase;
-    border-top: 1px solid rgba(201, 168, 73, 0.15);
+    margin: 6px 0;
+    color: rgba(201, 168, 73, 0.65);
+    font-size: 13px;
+    letter-spacing: 6px;
+    font-family: "Cinzel Decorative", serif;
 }
 
-/* Tucked-away credit (small + faint, never noisy) */
+/* === FOOTER === */
+.aur-footer {
+    text-align: center;
+    margin-top: 18px;
+    padding-top: 12px;
+    font-family: "Cinzel", serif;
+    font-size: 10px;
+    color: rgba(201, 168, 73, 0.55);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    border-top: 1px solid rgba(201, 168, 73, 0.18);
+    position: relative;
+}
+.aur-footer::before {
+    content: "✠";
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #c9a849;
+    font-size: 13px;
+    background: #0f0b06;
+    padding: 0 10px;
+    text-shadow: 0 0 8px rgba(201, 168, 73, 0.55);
+}
+
 .aur-credit {
     text-align: center;
     margin-top: 6px;
@@ -698,24 +835,16 @@ div#lion_image > div {
     letter-spacing: 2px;
     font-style: italic;
 }
+.aur-credit a { color: rgba(201, 168, 73, 0.45) !important; text-decoration: none !important; }
+.aur-credit a:hover { color: rgba(232, 204, 110, 0.75) !important; text-shadow: none !important; }
 
-.aur-credit a {
-    color: rgba(201, 168, 73, 0.40) !important;
-    text-decoration: none !important;
-}
-
-.aur-credit a:hover {
-    color: rgba(232, 204, 110, 0.65) !important;
-    text-shadow: none !important;
-}
-
-/* --- Inner box scrollbar --- */
+/* === Inner box scrollbar === */
 .aur-box::-webkit-scrollbar { width: 5px !important; }
 .aur-box::-webkit-scrollbar-track { background: rgba(8, 6, 3, 0.6) !important; }
-.aur-box::-webkit-scrollbar-thumb { background: rgba(201, 168, 73, 0.35) !important; }
-.aur-box::-webkit-scrollbar-thumb:hover { background: rgba(232, 204, 110, 0.55) !important; }
+.aur-box::-webkit-scrollbar-thumb { background: rgba(201, 168, 73, 0.40) !important; }
+.aur-box::-webkit-scrollbar-thumb:hover { background: rgba(232, 204, 110, 0.65) !important; }
 
-/* === COMMENT TAG IMAGES (avatars in comments) === */
+/* === COMMENT TAG IMAGES (avatars in comments) — round these like other dens === */
 .commentTag,
 .comment img.commentTag,
 img[src*="/images/tags/"] {
@@ -727,7 +856,10 @@ img[src*="/images/tags/"] {
 @media (max-width: 760px) {
     .aur-territory { width: 100% !important; padding: 0 8px; }
     .aur-row { flex-direction: column; align-items: center; }
-    .aur-box-half { width: 100% !important; height: auto !important; min-height: 180px; }
+    .aur-box-half { width: 100% !important; height: auto !important; min-height: 200px; }
     .aur-title { font-size: 46px; }
-    .aur-subtitle { margin: 6px 12px 6px; }
+    .aur-title::before, .aur-title::after { font-size: 16px; margin: 0 10px; }
+    .aur-subtitle { margin: 6px 12px 4px; }
+    .aur-avatar-flank { display: none; }
+    .aur-dropcap { font-size: 38px; }
 }

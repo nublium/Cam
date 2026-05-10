@@ -1,15 +1,15 @@
 <!--
 ============================================================
-THE AURELIAN PRIDE — Territory Description Snippet
-For cam · Lioden #583285
-Theme: Gothic & Gold
+✠  THE AURELIAN PRIDE — Territory Description Snippet  ✠
+For cam · Kreta the Scarred King · Lioden #583285
+Theme: Gothic & Gold (with extra ornaments)
 
 USAGE:
   Paste this whole block into your Lioden Territory Description.
   The CSS file is loaded via the <link> tag at the top.
 
-  To EDIT your content, just change the text inside each box.
-  Look for the "EDIT THIS" comments below.
+  To EDIT, look for "EDIT THIS" comments below — change only the
+  text inside, the gothic skeleton handles the rest.
 ============================================================
 -->
 
@@ -17,101 +17,144 @@ USAGE:
 
 <div class="aur-territory">
 
-    <div class="aur-ornament">❖ &nbsp; ✦ &nbsp; ❖</div>
+    <!-- Top crest row: flanking gothic ornaments -->
+    <div class="aur-crest-row">⚜ &nbsp; ✠ &nbsp; ⚜ &nbsp; ✠ &nbsp; ⚜</div>
 
     <!-- =====================================
-         DEN TITLE
-         EDIT THIS: change the title below
+         GRAND TITLE (gothic blackletter)
+         EDIT THIS: change the title text below
          ===================================== -->
     <div class="aur-title">The Aurelian Pride</div>
 
     <!-- =====================================
-         SUBTITLE / TAGLINE
-         EDIT THIS: change the subtitle below
+         SUBTITLE — your tagline
+         EDIT THIS: change subtitle below
          ===================================== -->
     <div class="aur-subtitle">
         Gold is a living god and rules in scorn,<br>
         all earthly things but virtue
     </div>
 
+    <!-- Latin motto — small caps, very faint (decorative only) -->
+    <div class="aur-motto">· aurum · vivit · deus · est ·</div>
+
     <div class="aur-divider"></div>
 
     <!-- =====================================
-         AVATAR (rectangular, gothic-framed)
-         EDIT THIS: change the <img src="..."> URL to your own image
-         (recommended: square-ish image, ~110x110 or larger)
-         The link sends visitors to cam's lion profile.
+         AVATAR — cathedral-arch gothic frame
+         EDIT THIS: change <img src="..."> to your own picture
+         (the link goes to Kreta's lion profile)
          ===================================== -->
     <div class="aur-avatar-wrap">
+        <span class="aur-avatar-flank left">⚔</span>
+
+        <span class="aur-avatar-crown">♔</span>
+
         <a href="https://www.lioden.com/lion.php?mid=583285">
             <span class="aur-avatar-frame">
                 <img class="aur-avatar"
                      src="https://nublium.github.io/Cam/placeholder-avatar.svg"
-                     alt="The Aurelian King">
+                     alt="Kreta — the Scarred King">
                 <span class="aur-corner-bl"></span>
                 <span class="aur-corner-br"></span>
             </span>
         </a>
+
+        <span class="aur-avatar-flank right">⚔</span>
     </div>
 
-    <!-- TAGS (optional — edit, remove, or add more) -->
-    <div style="text-align: center; margin: 10px 0 4px;">
-        <span class="aur-tag">she / her</span>
-        <span class="aur-tag-bright">friend code: 583285</span>
+    <!-- TAGS / WAX-SEALS — edit, remove, or add more -->
+    <div style="text-align: center; margin: 14px 0 4px;">
+        <span class="aur-tag">they / them</span>
+        <span class="aur-tag-bright">cam · #583285</span>
+        <span class="aur-tag">decor enjoyer</span>
     </div>
 
-    <!-- =====================================
-         DECORATIVE DIVIDER + SECTION LABEL
-         ===================================== -->
+    <!-- ===========================================================
+         GRAND CREST DIVIDER — section: the king
+         =========================================================== -->
+    <div class="aur-crest-divider">
+        <span class="aur-crest-medallion"><span>♔</span></span>
+    </div>
     <div class="aur-divider-full">
-        <span class="aur-divider-mark">❖ &nbsp; the pride &nbsp; ❖</span>
+        <span class="aur-divider-mark">
+            <span class="cross">✠</span> the king <span class="cross">✠</span>
+        </span>
     </div>
 
     <!-- =====================================
-         BOX 1 + BOX 2 — side by side
+         BOX 1 + BOX 2 side by side
          ===================================== -->
     <div class="aur-row">
 
         <!-- ============================
              BOX 1 — THE KING (text)
-             EDIT THIS: replace the text inside this box
+             EDIT THIS: replace the text inside this box.
+             The "T" at the start is an illuminated drop-cap;
+             keep it wrapped in <span class="aur-dropcap"> for the look.
              ============================ -->
         <div class="aur-box aur-box-half">
-            <div class="aur-box-header">The King</div>
+            <span class="aur-box-corner tl"></span>
+            <span class="aur-box-corner tr"></span>
+            <span class="aur-box-corner bl"></span>
+            <span class="aur-box-corner br"></span>
+
+            <div class="aur-box-numeral">— I —</div>
+            <div class="aur-box-header">
+                <span class="sym">♔</span> the king <span class="sym">⚔</span>
+            </div>
+
             <div class="aur-text">
-                <span class="aur-text-bright">[KING'S NAME]</span> — write everything you'd like visitors to know about your sovereign here. His personality, his lore, the way he commands the dawn.
+                <span class="aur-dropcap">T</span>he scarred king turns to you with kind eyes, welcoming you into his den. Even after receiving all these scars, <span class="aur-text-bright">Kreta</span> has stayed kind to all.
             </div>
             <br>
             <div class="aur-text">
-                Add scars, add stories, add the small quiet things that make him him. The box scrolls if your tale runs long.
+                <span class="aur-pilcrow">¶</span>You automatically feel safe in his presence — a wise king that does anything to protect his pride, even those not born in it.
             </div>
             <br>
-            <div class="aur-text-italic aur-text-center" style="font-size: 13px;">
-                "every king casts a shadow —<br>his is the shape of gold."
+
+            <div class="aur-quote">
+                a king is not the throne he sits upon —<br>
+                he is the shadow he casts over those he keeps
+                <span class="attrib">— pride proverb —</span>
             </div>
         </div>
 
         <!-- ============================
              BOX 2 — PRIDE (text)
-             EDIT THIS: replace the text inside this box
+             EDIT THIS: replace the text inside this box.
              ============================ -->
         <div class="aur-box aur-box-half">
-            <div class="aur-box-header">Pride</div>
+            <span class="aur-box-corner tl"></span>
+            <span class="aur-box-corner tr"></span>
+            <span class="aur-box-corner bl"></span>
+            <span class="aur-box-corner br"></span>
+
+            <div class="aur-box-numeral">— II —</div>
+            <div class="aur-box-header">
+                <span class="sym">⚜</span> pride <span class="sym">⚜</span>
+            </div>
+
             <div class="aur-text">
-                Tell the story of the <span class="aur-text-bright">Aurelian Pride</span> here. How it was founded, who walks its borders, what it stands for.
+                <span class="aur-dropcap">A</span> hearth held by quiet strength — the <span class="aur-text-bright">Aurelian Pride</span> walks beneath the scarred king's mark, and every lioness who treads its borders is held the same.
             </div>
             <br>
             <div class="aur-text">
-                Lioness lore, hierarchies, sacred rites — anything that fills out the pride's character belongs in this box.
+                <span class="aur-pilcrow">¶</span>Born or chosen, all are kept. Add your pride's story here — its hierarchies, its sacred rites, the stories it carries through dawn after dawn.
             </div>
             <br>
+
             <div class="aur-info-row">
-                <span class="aur-info-label">founded</span>
-                <span class="aur-info-value">[generation]</span>
+                <span class="aur-info-label">crowned</span>
+                <span class="aur-info-value">Kreta &nbsp; ♔</span>
+            </div>
+            <div class="aur-info-row">
+                <span class="aur-info-label">bannermen</span>
+                <span class="aur-info-value">ᴡɪɴᴅʙʟᴜᴍᴇ · ᴘʀɪᴍᴀʟ</span>
             </div>
             <div class="aur-info-row">
                 <span class="aur-info-label">size</span>
-                <span class="aur-info-value">[#&nbsp;lionesses]</span>
+                <span class="aur-info-value">35 lionesses &nbsp;·&nbsp; 16 cubs</span>
             </div>
             <div class="aur-info-row">
                 <span class="aur-info-label">aesthetic</span>
@@ -121,27 +164,45 @@ USAGE:
 
     </div>
 
-    <!-- =====================================
-         DECORATIVE DIVIDER + SECTION LABEL
-         ===================================== -->
+    <!-- ===========================================================
+         GRAND CREST DIVIDER — section: breeding goals
+         =========================================================== -->
+    <div class="aur-crest-divider">
+        <span class="aur-crest-medallion"><span>❦</span></span>
+    </div>
     <div class="aur-divider-full">
-        <span class="aur-divider-mark">❖ &nbsp; breeding goals &nbsp; ❖</span>
+        <span class="aur-divider-mark">
+            <span class="cross">✠</span> breeding goals <span class="cross">✠</span>
+        </span>
     </div>
 
     <!-- =====================================
-         BOX 3 — BREEDING GOALS (list, full width)
-         EDIT THIS: edit, add, or remove <li> items
+         BOX 3 — BREEDING GOALS (full-width list)
+         EDIT THIS: edit, add, or remove <li> items.
+         Each list item rotates through gothic glyphs (✠ ❖ ⚜ ❦ ✦)
+         automatically — just add more <li>s.
          ===================================== -->
     <div class="aur-box aur-box-full">
-        <div class="aur-box-header">Breeding Goals</div>
+        <span class="aur-box-corner tl"></span>
+        <span class="aur-box-corner tr"></span>
+        <span class="aur-box-corner bl"></span>
+        <span class="aur-box-corner br"></span>
+
+        <div class="aur-box-numeral">— III —</div>
+        <div class="aur-box-header">
+            <span class="sym">❦</span> breeding goals <span class="sym">❦</span>
+        </div>
+
         <ul class="aur-list">
             <li><span class="aur-text-accent">Goal one</span> — describe the bloodline, the trait, the dream you're chasing.</li>
             <li><span class="aur-text-accent">Goal two</span> — the second pillar of your breeding project.</li>
             <li><span class="aur-text-accent">Goal three</span> — what colours, markings, or mutations you're pursuing.</li>
-            <li><span class="aur-text-accent">Goal four</span> — every list item gets its own gold ❖ marker.</li>
+            <li><span class="aur-text-accent">Goal four</span> — every list item gets its own gold ornament; symbols rotate automatically.</li>
             <li><span class="aur-text-accent">Goal five</span> — add or remove rows freely.</li>
         </ul>
-        <br>
+
+        <div class="aur-trefoil">❦ &nbsp; ✦ &nbsp; ❦</div>
+
         <div class="aur-text-italic aur-text-center aur-text-sm">
             "what the pride seeks, the pride becomes."
         </div>
@@ -149,13 +210,13 @@ USAGE:
 
     <div class="aur-divider"></div>
 
-    <div class="aur-ornament">❖ &nbsp; ✦ &nbsp; ❖</div>
+    <div class="aur-ornament">✠ &nbsp; ❖ &nbsp; ✠</div>
 
     <!-- =====================================
-         FOOTER
+         FOOTER (with gothic cross above, motto below)
          ===================================== -->
     <div class="aur-footer">
-        The Aurelian Pride &nbsp; · &nbsp; cam &nbsp; · &nbsp; Lioden #583285
+        the aurelian pride &nbsp; · &nbsp; cam &nbsp; · &nbsp; lioden #583285
     </div>
 
     <!-- Tucked-away credit (please leave intact — small thanks!) -->
