@@ -46,9 +46,11 @@ USAGE:
          (the link goes to Kreta's lion profile)
          ===================================== -->
     <div class="aur-avatar-wrap">
-        <!-- Flank glyphs are rendered via CSS ::after (empty spans here on
-             purpose so Lioden's emoji-converter has nothing to replace). -->
-        <span class="aur-avatar-flank left"></span>
+        <!-- Flank glyphs are rendered via CSS ::after.
+             Modifier classes are --lhs/--rhs (NOT plain `left`/`right`)
+             because Lioden has global `.left` / `.right` classes for table
+             cells that would otherwise inject a coloured background. -->
+        <span class="aur-avatar-flank aur-avatar-flank--lhs"></span>
 
         <span class="aur-avatar-crown">♔</span>
 
@@ -62,7 +64,7 @@ USAGE:
             </span>
         </a>
 
-        <span class="aur-avatar-flank right"></span>
+        <span class="aur-avatar-flank aur-avatar-flank--rhs"></span>
     </div>
 
     <!-- TAGS / WAX-SEALS — edit, remove, or add more -->

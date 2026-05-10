@@ -988,28 +988,37 @@ html.nolayout, html.nolayout body, body.nolayout {
 .aur-avatar-frame:hover .aur-avatar { filter: saturate(1.05) contrast(1.08); }
 
 /* Dagger-flank ornaments around the avatar.
-   IMPORTANT: we render the glyph via CSS ::after (NOT inline in HTML)
-   because Lioden's territory-description sanitiser converts certain
-   Unicode codepoints (including U+2694 ⚔) into <img> emoji-replacement
-   tags. CSS pseudo-content is invisible to that pre-processor, so the
-   glyph survives intact. We also use † U+2020 (dagger) which is in the
-   "default text presentation" set across all browsers and fonts, so it
-   never triggers emoji-style colored rendering. */
+   IMPORTANT TWO-PART FIX:
+
+   1) The modifier classes are --lhs / --rhs (BEM "left/right hand side")
+      NOT plain `.left` / `.right`. Lioden uses `.left` and `.right` as
+      global classes for table-cell labels/values (e.g. `<td class="left">
+      Level:</td>`) — so any element of mine with `class="... left"`
+      inherits Lioden's label-cell background, which is what produced
+      the peach-coloured rectangle on the LEFT only. (Lioden's `.right`
+      cells are styled differently, hence the right side worked.)
+
+   2) The glyph is rendered via CSS `::after`, not inline in the HTML.
+      That keeps Lioden's emoji-converter from touching the codepoint.
+      We also use † U+2020 (dagger) which is in Unicode's "default text
+      presentation" set, so it never falls back to a colored emoji font. */
+
 .aur-avatar-flank {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     color: rgba(201, 168, 73, 0.65);
-    font-size: 0;       /* hides any inline content */
+    font-size: 0;
     line-height: 0;
     pointer-events: none;
     text-shadow: 0 0 8px rgba(201, 168, 73, 0.45);
     width: 22px;
     height: 32px;
     text-align: center;
+    background: transparent !important;   /* belt-and-braces vs Lioden CSS */
+    border: none !important;
 }
 .aur-avatar-flank::after {
-    /* † U+2020 dagger — monochrome text glyph, never an emoji */
     content: "\2020";
     font-family: "Cinzel Decorative", "Cinzel", "Times New Roman", serif;
     font-size: 30px;
@@ -1017,8 +1026,8 @@ html.nolayout, html.nolayout body, body.nolayout {
     color: inherit;
     text-shadow: 0 0 8px rgba(201, 168, 73, 0.45);
 }
-.aur-avatar-flank.left  { left:  calc(50% - 130px); }
-.aur-avatar-flank.right { right: calc(50% - 130px); }
+.aur-avatar-flank--lhs { left:  calc(50% - 130px); }
+.aur-avatar-flank--rhs { right: calc(50% - 130px); }
 
 /* === WAX-SEAL TAGS === */
 .aur-tag, .aur-tag-bright {

@@ -389,6 +389,8 @@ input:focus, textarea:focus {
     pointer-events: none;
     text-shadow: 0 0 8px rgba(201, 168, 73, 0.45);
     width: 22px; height: 32px; text-align: center;
+    background: transparent !important;
+    border: none !important;
 }
 .aur-avatar-flank::after {
     content: "\2020";   /* † U+2020 dagger — always monochrome text */
@@ -397,8 +399,8 @@ input:focus, textarea:focus {
     color: inherit;
     text-shadow: 0 0 8px rgba(201, 168, 73, 0.45);
 }
-.aur-avatar-flank.left { left: calc(50% - 130px); }
-.aur-avatar-flank.right { right: calc(50% - 130px); }
+.aur-avatar-flank--lhs { left:  calc(50% - 130px); }
+.aur-avatar-flank--rhs { right: calc(50% - 130px); }
 
 /* === Wax-seal tags === */
 .aur-tag, .aur-tag-bright {
@@ -720,7 +722,7 @@ input:focus, textarea:focus {
 
                     <!-- AVATAR -->
                     <div class="aur-avatar-wrap">
-                        <span class="aur-avatar-flank left"></span>
+                        <span class="aur-avatar-flank aur-avatar-flank--lhs"></span>
                         <span class="aur-avatar-crown">♔</span>
                         <a href="https://www.lioden.com/lion.php?mid=583285">
                             <span class="aur-avatar-frame">
@@ -731,7 +733,7 @@ input:focus, textarea:focus {
                                 <span class="aur-corner-br"></span>
                             </span>
                         </a>
-                        <span class="aur-avatar-flank right"></span>
+                        <span class="aur-avatar-flank aur-avatar-flank--rhs"></span>
                     </div>
 
                     <!-- TAGS -->
