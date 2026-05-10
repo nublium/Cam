@@ -197,11 +197,450 @@ div#lion_image > div { background-color: transparent !important; border: none !i
     color: #d4c8a8 !important;
 }
 
-/* === CHAT (legacy fallback) === */
+/* === LIODEN TABLES (King-info & Player-info blocks below the territory) === */
+.table, table { color: #cdc0a0 !important; }
+
+.table > thead > tr > th,
+.table > tbody > tr > td,
+.table td, .table th, td, th {
+    border-color: rgba(201, 168, 73, 0.18) !important;
+    color: #cdc0a0 !important;
+    background: transparent !important;
+}
+
+/* Header / footer / striped rows on King-info, Player-info, Allies, Attack tables */
+.table .top, td.top, th.top {
+    background: linear-gradient(180deg, rgba(74, 61, 16, 0.50) 0%, rgba(34, 26, 8, 0.70) 100%) !important;
+    color: #e8cc6e !important;
+    font-family: "Cinzel", serif !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1.5px !important;
+    border-color: rgba(201, 168, 73, 0.32) !important;
+}
+.table .bottom, td.bottom {
+    background: rgba(15, 11, 6, 0.78) !important;
+    border-color: rgba(201, 168, 73, 0.22) !important;
+}
+.table .right, td.right, tr.right {
+    background: rgba(18, 13, 7, 0.70) !important;
+}
+.table .right_odd, td.right_odd {
+    background: rgba(12, 8, 4, 0.82) !important;
+}
+.table .left, td.left {
+    color: #c9a849 !important;
+    font-family: "Cinzel", serif !important;
+    font-size: 11px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+}
+.table-striped > tbody > tr:nth-of-type(odd)  { background-color: rgba(74, 61, 16, 0.12) !important; }
+.table-striped > tbody > tr:nth-of-type(even) { background-color: rgba(10, 8, 4, 0.32) !important; }
+
+.inner-table, .inner-table.auto, table.inner-table {
+    background: transparent !important;
+}
+.inner-table td, .inner-table th { border: none !important; }
+
+/* "Member ID #xxxxxx" small label, big member name, etc. */
+.h3, .xlarge, .bigger { color: #e8cc6e !important; }
+.small, small { color: #a89260 !important; }
+.member-online, .member-offline {
+    display: inline-block !important;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: #c9a849;
+    box-shadow: 0 0 6px rgba(201, 168, 73, 0.65);
+    margin-right: 6px;
+    vertical-align: middle;
+}
+.text-muted { color: rgba(201, 168, 73, 0.40) !important; }
+
+/* === BUTTONS (catch all default Lioden buttons too) === */
+.btn, .btn-default, .btn-primary, .btn-success,
+.btn-info, .btn-warning, .btn-danger,
+.btn-sm, .btn-xs, .btn-lg,
+input[type="submit"], input[type="button"], button {
+    background: linear-gradient(180deg, #2a210a 0%, #15100400 100%) !important;
+    border: 1px solid rgba(201, 168, 73, 0.42) !important;
+    border-radius: 0 !important;
+    color: #e8cc6e !important;
+    font-family: "Cinzel", serif !important;
+    text-transform: uppercase !important;
+    font-size: 11px !important;
+    letter-spacing: 1px !important;
+    text-shadow: none !important;
+    box-shadow: none !important;
+    transition: all 0.3s ease !important;
+}
+.btn:hover, .btn-default:hover, .btn-primary:hover, .btn-success:hover,
+input[type="submit"]:hover, input[type="button"]:hover, button:hover {
+    background: linear-gradient(180deg, #4a3d10 0%, #2a210a 100%) !important;
+    border-color: rgba(232, 204, 110, 0.65) !important;
+    color: #f5deaa !important;
+    box-shadow: 0 0 10px rgba(201, 168, 73, 0.32) !important;
+}
+
+/* Cave / mound thumbnails — keep them tinted to the gold theme */
+.cave-grid, .mound-grid {
+    background: rgba(15, 11, 6, 0.7) !important;
+    border: 1px solid rgba(201, 168, 73, 0.20) !important;
+    color: #cdc0a0 !important;
+    font-family: "Cinzel", serif !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+    font-size: 10px !important;
+    padding: 4px !important;
+}
+.cave-grid:hover, .mound-grid:hover {
+    border-color: rgba(232, 204, 110, 0.55) !important;
+    box-shadow: 0 0 12px rgba(201, 168, 73, 0.22) !important;
+}
+
+/* === ALERTS — tame the bright red/orange/green Lioden defaults === */
+.alert,
+.alert-success, .alert-info, .alert-warning, .alert-danger {
+    background: rgba(74, 61, 16, 0.22) !important;
+    border: 1px solid rgba(201, 168, 73, 0.32) !important;
+    color: #cdc0a0 !important;
+    border-radius: 0 !important;
+}
+.alert-danger {
+    background: rgba(80, 20, 12, 0.18) !important;
+    border-color: rgba(180, 70, 40, 0.40) !important;
+    color: #d0a890 !important;
+}
+.alert a { color: #e8cc6e !important; }
+
+/* "Welcome back, ..." top banner */
+.welcomeback { color: #c9a849 !important; }
+
+/* Floatright credit / counters */
+.floatright { color: #a89260 !important; }
+
+/* === SOCIAL MEDIA + GAME STATS labels in the right sidebar === */
+[class*="socialMedia"], [class*="social_media"] { background: transparent !important; }
+
+/* === CHAT (legacy fallback — old `.chat_light`/`.chat_dark` rows) === */
 .chat_light, #chatMessages .chat_light,
 .chat_dark, #chatMessages .chat_dark {
     color: #cdc0a0 !important;
     background: rgba(18, 13, 7, 0.75) !important;
+}
+
+/* ============================================================
+   CHATBOX — Lioden's actual sidebar chat (BEM .s-chat-* classes)
+   Ported from prometheus theme, recoloured for gold/black.
+   Real structure:
+     <h3 style="position: relative;">Chat Box
+       <div ...><input id="btnToggleSidebarChat" value="Hide"></div>
+       <div ...><a href="./chat.php">Chat Room ->></a></div>
+     </h3>
+     <div id="fraSidebarChat"><iframe ...></iframe></div>
+   ============================================================ */
+
+/* The chat header h3 — flex-layout so Hide button + chat-room link
+   sit side-by-side instead of overlapping. */
+h3[style*="position: relative"] {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    flex-wrap: nowrap !important;
+    gap: 6px !important;
+    padding: 8px 12px !important;
+    margin: 14px 0 0 !important;
+    background: linear-gradient(180deg, rgba(34, 26, 8, 0.96), rgba(15, 11, 6, 0.99)) !important;
+    border: none !important;
+    font-family: "Cinzel", serif !important;
+    font-size: 13px !important;
+    letter-spacing: 2px !important;
+    color: #e8cc6e !important;
+    text-transform: uppercase !important;
+    line-height: 1.4 !important;
+    overflow: visible !important;
+}
+h3[style*="position: relative"] > div[style*="display: inline-block"] {
+    margin: 0 0 0 auto !important;
+    flex-shrink: 0 !important;
+    line-height: inherit !important;
+}
+h3[style*="position: relative"] > div[style*="position: absolute"] {
+    position: static !important;
+    margin: 0 !important;
+    line-height: inherit !important;
+    flex-shrink: 0 !important;
+}
+
+/* The Hide button */
+#btnToggleSidebarChat {
+    background: rgba(15, 11, 6, 0.92) !important;
+    border: 1px solid rgba(201, 168, 73, 0.45) !important;
+    color: #c9a849 !important;
+    font-family: "Cinzel", serif !important;
+    font-size: 9px !important;
+    letter-spacing: 1px !important;
+    padding: 3px 8px !important;
+    margin: 0 !important;
+    text-transform: uppercase !important;
+    border-radius: 0 !important;
+    cursor: pointer !important;
+    line-height: 1.4 !important;
+    vertical-align: middle !important;
+    transition: all 0.3s ease !important;
+}
+#btnToggleSidebarChat:hover {
+    background: rgba(34, 26, 8, 0.96) !important;
+    border-color: rgba(232, 204, 110, 0.65) !important;
+    color: #e8cc6e !important;
+    box-shadow: 0 0 6px rgba(201, 168, 73, 0.32) !important;
+}
+
+/* "Chat Room ->" link */
+h3 a[href="./chat.php"], h3 a[href*="chat.php"] {
+    color: #c9a849 !important;
+    font-size: 10px !important;
+    letter-spacing: 1px !important;
+    font-family: "Cinzel", serif !important;
+    text-transform: uppercase !important;
+    text-decoration: none !important;
+    padding: 3px 7px !important;
+    border: 1px solid rgba(201, 168, 73, 0.45) !important;
+    background: rgba(15, 11, 6, 0.7) !important;
+    line-height: 1.4 !important;
+    white-space: nowrap !important;
+    transition: all 0.3s ease !important;
+}
+h3 a[href="./chat.php"]:hover, h3 a[href*="chat.php"]:hover {
+    color: #e8cc6e !important;
+    border-color: rgba(232, 204, 110, 0.65) !important;
+    background: rgba(34, 26, 8, 0.9) !important;
+    text-shadow: none !important;
+}
+
+/* Sidebar chat iframe wrapper */
+#fraSidebarChat {
+    background: rgba(8, 6, 3, 0.92) !important;
+    border: none !important;
+    margin: 0 0 14px !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+}
+#fraSidebarChat iframe {
+    background: rgba(8, 6, 3, 0.92) !important;
+    border: none !important;
+    outline: none !important;
+    width: 100% !important;
+    display: block !important;
+    box-shadow: none !important;
+}
+#fraSidebarChat.hidden { display: none !important; }
+
+/* === Chat iframe content (inside) === */
+html.nolayout, html.nolayout body, body.nolayout {
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    background: rgba(8, 6, 3, 0.96) !important;
+    box-shadow: none !important;
+}
+
+.s-chat-sidebar, #fra_chatContainer, #fra_chatContainer.s-chat-sidebar {
+    background: rgba(8, 6, 3, 0.96) !important;
+    color: #a89260 !important;
+    font-family: "Cormorant Garamond", Georgia, serif !important;
+    border: none !important;
+    box-shadow: none !important;
+    margin: 0 !important;
+}
+
+/* Top channel/menu bar inside chat */
+.channelMenu {
+    background: linear-gradient(180deg, rgba(34, 26, 8, 0.94), rgba(15, 11, 6, 0.96)) !important;
+    border-bottom: 1px solid rgba(201, 168, 73, 0.42) !important;
+    color: #c9a849 !important;
+}
+.chatMenu-container {
+    background: rgba(12, 8, 4, 0.96) !important;
+    border: 1px solid rgba(201, 168, 73, 0.42) !important;
+    color: #cdc0a0 !important;
+}
+.channelSwitcher, .chatMenu-option {
+    background: rgba(34, 26, 8, 0.85) !important;
+    border: 1px solid rgba(201, 168, 73, 0.38) !important;
+    color: #c9a849 !important;
+    font-family: "Cinzel", serif !important;
+    text-transform: uppercase !important;
+    font-size: 10px !important;
+    letter-spacing: 1px !important;
+    text-shadow: none !important;
+    padding: 4px 8px !important;
+    border-radius: 0 !important;
+}
+.channelSwitcher.active {
+    background: linear-gradient(180deg, rgba(201, 168, 73, 0.42), rgba(74, 61, 16, 0.50)) !important;
+    color: #f5deaa !important;
+    border-color: rgba(232, 204, 110, 0.65) !important;
+}
+.channelSwitcher:hover, .chatMenu-option:hover {
+    background: rgba(50, 40, 14, 0.94) !important;
+    color: #e8cc6e !important;
+    border-color: rgba(232, 204, 110, 0.65) !important;
+}
+
+#btnLoadNewMessages {
+    background: rgba(40, 30, 10, 0.94) !important;
+    border: 1px solid rgba(201, 168, 73, 0.55) !important;
+    color: #e8cc6e !important;
+    font-family: "Cinzel", serif !important;
+    text-transform: uppercase !important;
+}
+
+/* PINNED MESSAGE strip (top of chat) */
+#chatMessagePinned, .s-chat-message__pinned {
+    background: linear-gradient(180deg, rgba(40, 30, 10, 0.92), rgba(20, 14, 6, 0.96)) !important;
+    border: 1px solid rgba(201, 168, 73, 0.48) !important;
+    color: #cdc0a0 !important;
+    text-shadow: none !important;
+    padding: 6px 10px !important;
+    font-family: "Cormorant Garamond", serif !important;
+}
+#chatMessagePinned a, .s-chat-message__pinned a { color: #e8cc6e !important; text-shadow: none !important; }
+#chatMessagePinned a:hover, .s-chat-message__pinned a:hover { color: #f5deaa !important; }
+
+/* Message list */
+#chatMessageList { background: transparent !important; color: #a89260 !important; }
+
+.s-chat-message {
+    background: rgba(14, 10, 5, 0.88) !important;
+    border-bottom: 1px solid rgba(74, 61, 16, 0.22) !important;
+    color: #cdc0a0 !important;
+    text-shadow: none !important;
+    padding: 6px 30px 8px 10px !important;
+    margin: 0 !important;
+    position: relative !important;
+}
+.s-chat-message > div:first-child { display: block !important; margin-bottom: 2px !important; }
+.s-chat-message:nth-of-type(odd)  { background: rgba(20, 14, 6, 0.92) !important; }
+.s-chat-message:nth-of-type(even) { background: rgba(12, 8, 4, 0.82) !important; }
+.s-chat-message:hover             { background: rgba(40, 30, 10, 0.94) !important; }
+
+/* Username links */
+.s-chat__username, .s-chat-message a.s-chat__username {
+    color: #e8cc6e !important;
+    font-weight: 600 !important;
+    text-shadow: none !important;
+    text-decoration: none !important;
+}
+.s-chat__username:hover { color: #f5deaa !important; text-shadow: none !important; }
+.s-chat__username[data-type="donator"]   { color: #f0d080 !important; }
+.s-chat__username[data-type="new"]       { color: #a89260 !important; }
+.s-chat__username[data-type="staff"],
+.s-chat__username[data-type="moderator"] { color: #f5deaa !important; }
+
+/* Message body — display:block forces it onto its own line below
+   the username, fixing the readability + overlap issues */
+.s-chat-message_content,
+.s-chat-message_content * {
+    color: #cdc0a0 !important;
+    text-shadow: none !important;
+    background: transparent !important;
+}
+.s-chat-message_content {
+    display: block !important;
+    margin: 2px 0 !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    line-height: 1.45 !important;
+}
+.s-chat-message_content b { color: #e8cc6e !important; }
+.s-chat-message_content a.s-chat__username { color: #e8cc6e !important; background: transparent !important; }
+
+/* Timestamp on its own line */
+.s-chat-message_timestamp {
+    display: block !important;
+    color: #8a7a55 !important;
+    font-size: 10px !important;
+    font-style: italic !important;
+    font-family: "Cormorant Garamond", serif !important;
+    text-shadow: none !important;
+    margin-top: 3px !important;
+    line-height: 1.2 !important;
+    clear: both !important;
+}
+
+/* Three-dot menu pinned to top-right */
+.s-chat-message_menu {
+    position: absolute !important;
+    top: 6px !important; right: 6px !important;
+    background: rgba(34, 26, 8, 0.55) !important;
+    border: 1px solid rgba(74, 61, 16, 0.42) !important;
+    opacity: 0.55 !important;
+    transition: all 0.3s ease !important;
+}
+.s-chat-message_menu:hover {
+    opacity: 1 !important;
+    background: rgba(50, 40, 14, 0.92) !important;
+    border-color: rgba(232, 204, 110, 0.65) !important;
+}
+
+.s-chat-message__icon { filter: sepia(40%) saturate(80%) brightness(85%) !important; opacity: 0.85 !important; }
+
+/* Chat input field */
+#txtChatInput {
+    background: rgba(8, 6, 3, 0.96) !important;
+    border: 1px solid rgba(201, 168, 73, 0.50) !important;
+    color: #cdc0a0 !important;
+    font-family: "Cormorant Garamond", serif !important;
+    padding: 6px 8px !important;
+    border-radius: 0 !important;
+}
+#txtChatInput:focus {
+    border-color: rgba(232, 204, 110, 0.75) !important;
+    box-shadow: 0 0 8px rgba(201, 168, 73, 0.32) !important;
+    outline: none !important;
+}
+#txtChatInput::placeholder { color: #8a7a55 !important; font-style: italic !important; }
+
+/* "Code of Conduct" link */
+#txtChatContainer a[href*="code.php"] {
+    color: #a89260 !important;
+    font-family: "Cinzel", serif !important;
+    font-size: 10px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+    text-shadow: none !important;
+    text-decoration: none !important;
+}
+#txtChatContainer a[href*="code.php"]:hover { color: #e8cc6e !important; text-shadow: none !important; }
+
+#lblCharacterCounter { color: #a89260 !important; font-family: "Cinzel", serif !important; font-size: 10px !important; text-shadow: none !important; }
+#lblCharacterCounter span { color: #c9a849 !important; }
+
+/* The ROAR! send button */
+#btnChatSend {
+    background: linear-gradient(180deg, #4a3d10 0%, #2a210a 100%) !important;
+    border: 1px solid rgba(201, 168, 73, 0.55) !important;
+    color: #e8cc6e !important;
+    font-family: "Cinzel", serif !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1.5px !important;
+    font-size: 11px !important;
+    padding: 6px 16px !important;
+    text-shadow: none !important;
+    border-radius: 0 !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+}
+#btnChatSend:hover {
+    background: linear-gradient(180deg, #6b541a 0%, #4a3d10 100%) !important;
+    border-color: rgba(232, 204, 110, 0.75) !important;
+    color: #f5deaa !important;
+    box-shadow: 0 0 10px rgba(201, 168, 73, 0.40) !important;
+}
+
+.emoteInput {
+    background: rgba(34, 26, 8, 0.88) !important;
+    border: 1px solid rgba(201, 168, 73, 0.42) !important;
 }
 
 /* === SCROLLBAR === */
@@ -234,6 +673,26 @@ div#lion_image > div { background-color: transparent !important; border: none !i
         radial-gradient(ellipse at 30% 20%, rgba(232, 204, 110, 0.020) 0%, transparent 55%),
         radial-gradient(ellipse at 70% 80%, rgba(232, 204, 110, 0.015) 0%, transparent 55%);
 }
+
+/* === KILL Lioden's auto-injected <br> tags.
+   Lioden's territory description converts blank lines into <br><br> pairs
+   which stack up everywhere — between sections, between block children of
+   each box, even between corner-ornament spans. We hide ALL <br>s in the
+   territory, then explicitly restore the ones we deliberately placed for
+   in-text line breaks (subtitle, quote, etc). */
+.aur-territory br {
+    display: none !important;
+}
+/* Re-enable <br>s inside text-containing elements that need real line
+   breaks. `display: inline` still triggers <br>'s native line-break
+   behaviour in all modern browsers — only `display: none` suppresses it. */
+.aur-subtitle br,
+.aur-quote br,
+.aur-text br,
+.aur-list br {
+    display: inline !important;
+}
+.aur-territory > p { margin: 0 !important; }
 
 /* Outer double gold frame (the manuscript "border") */
 .aur-territory::before,
@@ -374,12 +833,20 @@ div#lion_image > div { background-color: transparent !important; border: none !i
     text-shadow: 0 0 10px rgba(232, 204, 110, 0.55);
 }
 
-/* Tier 3: GRAND CREST DIVIDER (with central medallion) */
+/* Tier 3: GRAND SECTION HEADER — medallion ON TOP, label DIRECTLY BELOW,
+   all in one compact unit (replaces the old two-element stack). */
+.aur-section {
+    text-align: center;
+    margin: 14px 0 8px;
+}
+
+/* Top row: medallion flanked by gold lines */
 .aur-crest-divider {
     text-align: center;
-    margin: 24px 0 18px;
+    margin: 0;
     position: relative;
     height: 36px;
+    line-height: 36px;
 }
 .aur-crest-divider::before,
 .aur-crest-divider::after {
@@ -409,11 +876,17 @@ div#lion_image > div { background-color: transparent !important; border: none !i
         0 0 0 4px rgba(201, 168, 73, 0.30),
         0 0 14px rgba(201, 168, 73, 0.35);
     transform: rotate(45deg);
+    vertical-align: middle;
 }
 .aur-crest-medallion span {
     display: inline-block;
     transform: rotate(-45deg);
     text-shadow: 0 0 8px rgba(232, 204, 110, 0.55);
+}
+
+/* The label that sits TIGHT under the medallion */
+.aur-section .aur-divider-full {
+    margin: 4px 0 0;
 }
 
 /* === AVATAR — Cathedral-arch frame, NOT round === */

@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="260" height="300" viewBox="0 0 260 300" preserveAspectRatio="xMidYMid slice">
   <defs>
-    <radialGradient id="hearth" cx="50%" cy="40%" r="70%">
-      <stop offset="0%" stop-color="#2a1f0c"/>
-      <stop offset="40%" stop-color="#15100600"/>
+    <radialGradient id="hearth" cx="50%" cy="42%" r="75%">
+      <stop offset="0%"  stop-color="#3a2a14"/>
+      <stop offset="35%" stop-color="#1d1408"/>
       <stop offset="70%" stop-color="#0a0805"/>
       <stop offset="100%" stop-color="#040301"/>
     </radialGradient>
     <linearGradient id="goldStroke" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%"  stop-color="#f5deaa"/>
-      <stop offset="40%" stop-color="#e8cc6e"/>
-      <stop offset="70%" stop-color="#c9a849"/>
+      <stop offset="0%"   stop-color="#f5deaa"/>
+      <stop offset="40%"  stop-color="#e8cc6e"/>
+      <stop offset="75%"  stop-color="#c9a849"/>
       <stop offset="100%" stop-color="#8b7320"/>
     </linearGradient>
     <linearGradient id="goldFill" x1="50%" y1="0%" x2="50%" y2="100%">
-      <stop offset="0%"  stop-color="#e8cc6e" stop-opacity="0.45"/>
+      <stop offset="0%"   stop-color="#e8cc6e" stop-opacity="0.55"/>
       <stop offset="100%" stop-color="#8b7320" stop-opacity="0.20"/>
     </linearGradient>
     <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="2.4" result="blurred"/>
+      <feGaussianBlur stdDeviation="2.6" result="blurred"/>
       <feMerge>
         <feMergeNode in="blurred"/>
         <feMergeNode in="SourceGraphic"/>
@@ -26,96 +26,116 @@
     </filter>
   </defs>
 
-  <!-- Vellum-over-ash background -->
+  <!-- Background -->
   <rect width="260" height="300" fill="url(#hearth)"/>
 
-  <!-- Inner gothic frame line -->
-  <rect x="6" y="6" width="248" height="288" fill="none"
-        stroke="url(#goldStroke)" stroke-width="0.6" opacity="0.45"/>
-
-  <!-- ============ TOP: pointed-arch ornament ============ -->
-  <g stroke="url(#goldStroke)" fill="none" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)">
-    <!-- Pointed arch -->
-    <path d="M 50 90 Q 50 30 130 30 Q 210 30 210 90"
-          stroke-width="1.4" opacity="0.85"/>
-    <!-- Inner arch (lighter) -->
-    <path d="M 65 95 Q 65 48 130 48 Q 195 48 195 95"
-          stroke-width="0.7" opacity="0.5"/>
-    <!-- Apex finial -->
-    <path d="M 130 16 L 130 32 M 124 22 L 136 22" stroke-width="1.4" opacity="0.85"/>
-    <!-- Finial diamond -->
-    <path d="M 130 36 L 134 40 L 130 44 L 126 40 Z" stroke-width="1" opacity="0.85"/>
-  </g>
-
-  <!-- ============ CROWN above the arch ============ -->
-  <g fill="url(#goldFill)" stroke="url(#goldStroke)" stroke-width="1.0" filter="url(#glow)">
-    <path d="M 100 20 L 105 8 L 115 16 L 125 4 L 135 4 L 145 16 L 155 8 L 160 20
-             L 158 24 L 102 24 Z" opacity="0.85"/>
-    <!-- Three small jewels on the crown -->
-    <circle cx="115" cy="18" r="1.6" fill="#f5deaa" stroke="none"/>
-    <circle cx="130" cy="14" r="1.8" fill="#f5deaa" stroke="none"/>
-    <circle cx="145" cy="18" r="1.6" fill="#f5deaa" stroke="none"/>
-  </g>
-
-  <!-- ============ MAIN CRESS: lion silhouette w/ scar ============ -->
+  <!-- ============ MAIN: heraldic lion silhouette ============ -->
   <g filter="url(#glow)">
-    <!-- Stylized lion-head silhouette (geometric heraldic style) -->
-    <g fill="url(#goldFill)" stroke="url(#goldStroke)" stroke-width="1.3" stroke-linejoin="round" opacity="0.92">
-      <!-- Mane outer -->
-      <path d="M 130 100
-               C 95 100, 80 115, 80 145
-               C 80 170, 90 192, 110 200
-               C 120 218, 140 218, 150 200
-               C 170 192, 180 170, 180 145
-               C 180 115, 165 100, 130 100 Z"/>
-      <!-- Mane spikes -->
-      <path d="M 90 120 L 85 108 L 96 116 M 110 105 L 112 92 L 119 106 M 130 100 L 130 88 L 138 102
-               M 150 105 L 150 92 L 158 106 M 170 116 L 175 104 L 168 118
-               M 80 145 L 70 144 L 80 152 M 180 145 L 190 144 L 180 152
-               M 90 168 L 80 172 L 92 175 M 170 168 L 180 172 L 168 175"
-            stroke-width="1.2" fill="none"/>
-      <!-- Inner face -->
-      <path d="M 110 145
-               Q 110 132, 130 132
-               Q 150 132, 150 145
-               Q 150 165, 130 175
-               Q 110 165, 110 145 Z"
-            fill="rgba(40, 28, 12, 0.55)"/>
-      <!-- Eyes -->
-      <circle cx="120" cy="148" r="2.2" fill="#f5deaa" stroke="none"/>
-      <circle cx="140" cy="148" r="2.2" fill="#f5deaa" stroke="none"/>
-      <!-- Nose -->
-      <path d="M 127 158 L 133 158 L 130 162 Z" fill="url(#goldStroke)" stroke="none"/>
-      <!-- Mouth -->
-      <path d="M 130 162 L 130 168 M 124 168 Q 130 172, 136 168" stroke-width="0.8"/>
+
+    <!-- Mane outer rim (rough heraldic flame shape) -->
+    <path d="M 130 50
+             C 78 50, 50 80, 50 132
+             C 50 148, 56 162, 66 174
+             C 60 184, 60 198, 70 210
+             C 78 222, 92 230, 108 234
+             C 118 248, 142 248, 152 234
+             C 168 230, 182 222, 190 210
+             C 200 198, 200 184, 194 174
+             C 204 162, 210 148, 210 132
+             C 210 80, 182 50, 130 50 Z"
+          fill="url(#goldFill)"
+          stroke="url(#goldStroke)"
+          stroke-width="2"
+          stroke-linejoin="round"/>
+
+    <!-- Mane inner spike rim (catches light) -->
+    <path d="M 130 70
+             C 95 70, 75 95, 75 134
+             C 75 158, 84 178, 100 192
+             C 110 206, 150 206, 160 192
+             C 176 178, 185 158, 185 134
+             C 185 95, 165 70, 130 70 Z"
+          fill="none"
+          stroke="url(#goldStroke)"
+          stroke-width="0.8"
+          stroke-linejoin="round"
+          opacity="0.55"/>
+
+    <!-- Mane outer spikes (jagged tufts around the head) -->
+    <g stroke="url(#goldStroke)" stroke-width="1.4" fill="none" stroke-linecap="round" opacity="0.85">
+      <!-- top tufts -->
+      <path d="M 110 56 L 105 38 L 116 52"/>
+      <path d="M 130 50 L 130 30 L 140 50"/>
+      <path d="M 150 56 L 156 38 L 145 52"/>
+      <!-- side tufts L -->
+      <path d="M 78 90 L 60 80 L 76 96"/>
+      <path d="M 60 130 L 40 128 L 58 138"/>
+      <path d="M 66 174 L 46 178 L 70 184"/>
+      <!-- side tufts R -->
+      <path d="M 182 90 L 200 80 L 184 96"/>
+      <path d="M 200 130 L 220 128 L 202 138"/>
+      <path d="M 194 174 L 214 178 L 190 184"/>
+      <!-- bottom tufts -->
+      <path d="M 92 226 L 82 240 L 100 232"/>
+      <path d="M 168 226 L 178 240 L 160 232"/>
     </g>
 
-    <!-- The scar (eye scar — Kreta is the scarred king) -->
-    <path d="M 145 138 L 152 158" stroke="#f5deaa" stroke-width="1.6"
-          stroke-linecap="round" opacity="0.85"/>
-    <path d="M 148 142 L 145 145 M 150 150 L 153 148"
-          stroke="#f5deaa" stroke-width="0.9" stroke-linecap="round" opacity="0.7"/>
+    <!-- ============ FACE ============ -->
+    <!-- Face oval -->
+    <path d="M 130 110
+             C 110 110, 100 122, 100 142
+             C 100 168, 115 188, 130 196
+             C 145 188, 160 168, 160 142
+             C 160 122, 150 110, 130 110 Z"
+          fill="rgba(40, 28, 12, 0.65)"
+          stroke="url(#goldStroke)"
+          stroke-width="1.5"/>
+
+    <!-- Brow ridge -->
+    <path d="M 110 132 Q 118 126, 124 132 M 136 132 Q 142 126, 150 132"
+          stroke="url(#goldStroke)" stroke-width="1.4" fill="none" stroke-linecap="round" opacity="0.8"/>
+
+    <!-- Eyes -->
+    <circle cx="118" cy="142" r="3.5" fill="#f5deaa"/>
+    <circle cx="142" cy="142" r="3.5" fill="#f5deaa"/>
+    <circle cx="118" cy="142" r="1.5" fill="#0a0805"/>
+    <circle cx="142" cy="142" r="1.5" fill="#0a0805"/>
+
+    <!-- Nose -->
+    <path d="M 124 162 L 136 162 L 130 170 Z"
+          fill="url(#goldStroke)" stroke="url(#goldStroke)" stroke-width="0.6"/>
+
+    <!-- Snout / mouth -->
+    <path d="M 130 170 L 130 180 M 122 180 Q 130 188, 138 180"
+          stroke="url(#goldStroke)" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+
+    <!-- Whisker dots -->
+    <g fill="url(#goldStroke)" opacity="0.6">
+      <circle cx="116" cy="174" r="0.8"/>
+      <circle cx="113" cy="178" r="0.8"/>
+      <circle cx="144" cy="174" r="0.8"/>
+      <circle cx="147" cy="178" r="0.8"/>
+    </g>
+
+    <!-- ============ THE SCAR (Kreta's defining mark) ============ -->
+    <!-- Long diagonal eye-scar across the right side of the face -->
+    <path d="M 152 122 L 158 168"
+          stroke="#f5deaa" stroke-width="2.2"
+          stroke-linecap="round" opacity="0.92"/>
+    <!-- Cross-hatching on the scar (stitching look) -->
+    <path d="M 154 132 L 150 134 M 155 144 L 159 142
+             M 156 156 L 152 158"
+          stroke="#f5deaa" stroke-width="1" stroke-linecap="round" opacity="0.78"/>
+
   </g>
 
-  <!-- ============ BOTTOM: crossed swords + scroll ============ -->
-  <g stroke="url(#goldStroke)" fill="none" stroke-linecap="round" filter="url(#glow)">
-    <!-- Sword 1 (left to right) -->
-    <line x1="78" y1="248" x2="182" y2="220" stroke-width="1.4" opacity="0.75"/>
-    <!-- Sword 2 (right to left) -->
-    <line x1="78" y1="220" x2="182" y2="248" stroke-width="1.4" opacity="0.75"/>
-    <!-- Hilts (small crosses at sword bases) -->
-    <path d="M 75 218 L 81 224 M 75 224 L 81 218 M 75 246 L 81 252 M 75 252 L 81 246
-             M 179 218 L 185 224 M 179 224 L 185 218 M 179 246 L 185 252 M 179 252 L 185 246"
-          stroke-width="1.2" opacity="0.85"/>
-    <!-- Center medallion at sword crossing -->
-    <circle cx="130" cy="234" r="6" stroke-width="1" opacity="0.85" fill="rgba(15, 11, 6, 0.95)"/>
-    <text x="130" y="238" font-family="Georgia, serif" font-size="9" font-style="italic"
-          fill="#e8cc6e" text-anchor="middle" stroke="none">K</text>
-  </g>
+  <!-- Subtle inner gold frame (emphasises the cathedral arch silhouette) -->
+  <rect x="3" y="3" width="254" height="294" fill="none"
+        stroke="url(#goldStroke)" stroke-width="0.5" opacity="0.30"/>
 
-  <!-- ============ BOTTOM TEXT ============ -->
-  <text x="130" y="278" font-family="Georgia, serif" font-size="11" font-style="italic"
-        fill="rgba(232, 204, 110, 0.65)" text-anchor="middle" letter-spacing="3">KRETA</text>
+  <!-- Bottom signature -->
+  <text x="130" y="278" font-family="Georgia, serif" font-size="13" font-style="italic"
+        fill="rgba(232, 204, 110, 0.78)" text-anchor="middle" letter-spacing="4">KRETA</text>
   <text x="130" y="290" font-family="Georgia, serif" font-size="7"
-        fill="rgba(201, 168, 73, 0.40)" text-anchor="middle" letter-spacing="4">THE SCARRED KING</text>
+        fill="rgba(201, 168, 73, 0.50)" text-anchor="middle" letter-spacing="4">THE SCARRED KING</text>
 </svg>

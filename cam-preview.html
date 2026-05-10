@@ -199,6 +199,10 @@ input:focus, textarea:focus {
         radial-gradient(ellipse at 30% 20%, rgba(232, 204, 110, 0.020) 0%, transparent 55%),
         radial-gradient(ellipse at 70% 80%, rgba(232, 204, 110, 0.015) 0%, transparent 55%);
 }
+/* Kill auto-injected <br>s, restore intentional ones */
+.aur-territory br { display: none !important; }
+.aur-subtitle br, .aur-quote br, .aur-text br, .aur-list br { display: inline !important; }
+.aur-territory > p { margin: 0 !important; }
 .aur-territory::before, .aur-territory::after {
     content: "";
     position: absolute;
@@ -293,9 +297,11 @@ input:focus, textarea:focus {
     text-shadow: 0 0 10px rgba(232, 204, 110, 0.55);
 }
 
+.aur-section { text-align: center; margin: 14px 0 8px; }
+.aur-section .aur-divider-full { margin: 4px 0 0; }
 .aur-crest-divider {
-    text-align: center; margin: 24px 0 18px;
-    position: relative; height: 36px;
+    text-align: center; margin: 0;
+    position: relative; height: 36px; line-height: 36px;
 }
 .aur-crest-divider::before, .aur-crest-divider::after {
     content: ""; position: absolute; top: 50%;
@@ -723,14 +729,16 @@ input:focus, textarea:focus {
                         <span class="aur-tag">decor enjoyer</span>
                     </div>
 
-                    <!-- GRAND CREST DIVIDER + section: the king -->
-                    <div class="aur-crest-divider">
-                        <span class="aur-crest-medallion"><span>♔</span></span>
-                    </div>
-                    <div class="aur-divider-full">
-                        <span class="aur-divider-mark">
-                            <span class="cross">✠</span> the king <span class="cross">✠</span>
-                        </span>
+                    <!-- GRAND SECTION HEADER — the king -->
+                    <div class="aur-section">
+                        <div class="aur-crest-divider">
+                            <span class="aur-crest-medallion"><span>♔</span></span>
+                        </div>
+                        <div class="aur-divider-full">
+                            <span class="aur-divider-mark">
+                                <span class="cross">✠</span> the king <span class="cross">✠</span>
+                            </span>
+                        </div>
                     </div>
 
                     <!-- BOX 1 + BOX 2 -->
@@ -803,14 +811,16 @@ input:focus, textarea:focus {
 
                     </div>
 
-                    <!-- GRAND CREST DIVIDER + section: breeding goals -->
-                    <div class="aur-crest-divider">
-                        <span class="aur-crest-medallion"><span>❦</span></span>
-                    </div>
-                    <div class="aur-divider-full">
-                        <span class="aur-divider-mark">
-                            <span class="cross">✠</span> breeding goals <span class="cross">✠</span>
-                        </span>
+                    <!-- GRAND SECTION HEADER — breeding goals -->
+                    <div class="aur-section">
+                        <div class="aur-crest-divider">
+                            <span class="aur-crest-medallion"><span>❦</span></span>
+                        </div>
+                        <div class="aur-divider-full">
+                            <span class="aur-divider-mark">
+                                <span class="cross">✠</span> breeding goals <span class="cross">✠</span>
+                            </span>
+                        </div>
                     </div>
 
                     <!-- BOX 3 -->
