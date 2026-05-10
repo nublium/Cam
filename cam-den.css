@@ -675,11 +675,7 @@ html.nolayout, html.nolayout body, body.nolayout {
 }
 
 /* === KILL Lioden's auto-injected <br> tags.
-   Lioden's territory description converts blank lines into <br><br> pairs
-   which stack up everywhere — between sections, between block children of
-   each box, even between corner-ornament spans. We hide ALL <br>s in the
-   territory, then explicitly restore the ones we deliberately placed for
-   in-text line breaks (subtitle, quote, etc). */
+ */
 .aur-territory br {
     display: none !important;
 }
@@ -834,7 +830,7 @@ html.nolayout, html.nolayout body, body.nolayout {
 }
 
 /* Tier 3: GRAND SECTION HEADER — medallion ON TOP, label DIRECTLY BELOW,
-   all in one compact unit (replaces the old two-element stack). */
+   all in one compact unit*/
 .aur-section {
     text-align: center;
     /* Generous outer spacing so the section header has breathing room
@@ -988,20 +984,7 @@ html.nolayout, html.nolayout body, body.nolayout {
 .aur-avatar-frame:hover .aur-avatar { filter: saturate(1.05) contrast(1.08); }
 
 /* Dagger-flank ornaments around the avatar.
-   IMPORTANT TWO-PART FIX:
-
-   1) The modifier classes are --lhs / --rhs (BEM "left/right hand side")
-      NOT plain `.left` / `.right`. Lioden uses `.left` and `.right` as
-      global classes for table-cell labels/values (e.g. `<td class="left">
-      Level:</td>`) — so any element of mine with `class="... left"`
-      inherits Lioden's label-cell background, which is what produced
-      the peach-coloured rectangle on the LEFT only. (Lioden's `.right`
-      cells are styled differently, hence the right side worked.)
-
-   2) The glyph is rendered via CSS `::after`, not inline in the HTML.
-      That keeps Lioden's emoji-converter from touching the codepoint.
-      We also use † U+2020 (dagger) which is in Unicode's "default text
-      presentation" set, so it never falls back to a colored emoji font. */
+   IMPORTANT*/
 
 .aur-avatar-flank {
     position: absolute;
