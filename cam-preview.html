@@ -297,12 +297,15 @@ input:focus, textarea:focus {
     text-shadow: 0 0 10px rgba(232, 204, 110, 0.55);
 }
 
-.aur-section { text-align: center; margin: 14px 0 8px; }
-.aur-section .aur-divider-full { margin: 4px 0 0; }
+.aur-section { text-align: center; margin: 24px 0 18px; }
+.aur-section .aur-divider-full { margin: 8px 0 0; }
 .aur-crest-divider {
     text-align: center; margin: 0;
-    position: relative; height: 36px; line-height: 36px;
+    position: relative; height: 52px; line-height: 52px;
 }
+.aur-row { margin: 4px 0 18px !important; }
+.aur-avatar-wrap { margin: 22px 0 10px !important; }
+.aur-tags-row { text-align: center; margin: 14px 0 8px; }
 .aur-crest-divider::before, .aur-crest-divider::after {
     content: ""; position: absolute; top: 50%;
     width: 38%; height: 1px;
@@ -381,9 +384,16 @@ input:focus, textarea:focus {
 .aur-avatar-frame:hover .aur-avatar { filter: saturate(1.05) contrast(1.08); }
 .aur-avatar-flank {
     position: absolute; top: 50%; transform: translateY(-50%);
-    color: rgba(201, 168, 73, 0.55); font-size: 22px;
+    color: rgba(201, 168, 73, 0.55);
+    font-size: 0; line-height: 0;
     pointer-events: none;
     text-shadow: 0 0 8px rgba(201, 168, 73, 0.45);
+}
+.aur-avatar-flank::after {
+    content: "\2694\FE0E";
+    font-family: "Cinzel Decorative", "Cinzel", "Times New Roman", serif;
+    font-size: 22px; line-height: 1;
+    color: inherit;
 }
 .aur-avatar-flank.left { left: calc(50% - 130px); }
 .aur-avatar-flank.right { right: calc(50% - 130px); }
@@ -723,7 +733,7 @@ input:focus, textarea:focus {
                     </div>
 
                     <!-- TAGS -->
-                    <div style="text-align: center; margin: 14px 0 4px;">
+                    <div class="aur-tags-row">
                         <span class="aur-tag">they / them</span>
                         <span class="aur-tag-bright">cam · #583285</span>
                         <span class="aur-tag">decor enjoyer</span>

@@ -837,16 +837,21 @@ html.nolayout, html.nolayout body, body.nolayout {
    all in one compact unit (replaces the old two-element stack). */
 .aur-section {
     text-align: center;
-    margin: 14px 0 8px;
+    /* Generous outer spacing so the section header has breathing room
+       both above (separating it from previous content) and below
+       (separating it from the boxes that follow). */
+    margin: 24px 0 18px;
 }
 
-/* Top row: medallion flanked by gold lines */
+/* Top row: medallion flanked by gold lines.
+   Container is taller (52px) so the rotated 45° diamond (~51px diagonal)
+   doesn't visually overflow into the label below. */
 .aur-crest-divider {
     text-align: center;
     margin: 0;
     position: relative;
-    height: 36px;
-    line-height: 36px;
+    height: 52px;
+    line-height: 52px;
 }
 .aur-crest-divider::before,
 .aur-crest-divider::after {
@@ -884,16 +889,24 @@ html.nolayout, html.nolayout body, body.nolayout {
     text-shadow: 0 0 8px rgba(232, 204, 110, 0.55);
 }
 
-/* The label that sits TIGHT under the medallion */
+/* The label that sits under the medallion — clears the rotated diamond. */
 .aur-section .aur-divider-full {
-    margin: 4px 0 0;
+    margin: 8px 0 0;
 }
 
 /* === AVATAR — Cathedral-arch frame, NOT round === */
 .aur-avatar-wrap {
     text-align: center;
-    margin: 16px 0 6px;
+    margin: 22px 0 10px;
     position: relative;
+}
+
+/* === Centred wrapper for the small tags row that sits below the avatar
+   (pronouns, friend code, etc). Uses a class instead of inline style so
+   spacing is consistent across the snippet. */
+.aur-tags-row {
+    text-align: center;
+    margin: 14px 0 8px;
 }
 
 /* Crown floating above the frame */
@@ -974,7 +987,14 @@ html.nolayout, html.nolayout body, body.nolayout {
 }
 .aur-avatar-frame:hover .aur-avatar { filter: saturate(1.05) contrast(1.08); }
 
-/* Sword-flank ornaments around the avatar */
+/* Sword-flank ornaments around the avatar.
+   IMPORTANT: we hide whatever glyph is in the HTML and use a CSS ::after
+   with the variation-selector U+FE0E ("\FE0E") appended to the codepoint.
+   This forces Chrome/Safari/Firefox to render ⚔ as a monochrome text
+   glyph instead of its colored-emoji presentation (which is what was
+   causing the peach-coloured "box" on the left flank).
+   We also pin the font-family explicitly to a serif chain so the browser
+   doesn't fall back to an emoji font for the glyph. */
 .aur-avatar-flank {
     position: absolute;
     top: 50%;
@@ -983,6 +1003,17 @@ html.nolayout, html.nolayout body, body.nolayout {
     font-size: 22px;
     pointer-events: none;
     text-shadow: 0 0 8px rgba(201, 168, 73, 0.45);
+    /* Hide whatever glyph is in the HTML — we render via ::after below */
+    font-size: 0;
+    line-height: 0;
+}
+.aur-avatar-flank::after {
+    /* U+2694 ⚔ + U+FE0E variation selector forces text (monochrome) presentation */
+    content: "\2694\FE0E";
+    font-family: "Cinzel Decorative", "Cinzel", "Times New Roman", serif;
+    font-size: 22px;
+    line-height: 1;
+    color: inherit;
 }
 .aur-avatar-flank.left  { left:  calc(50% - 130px); }
 .aur-avatar-flank.right { right: calc(50% - 130px); }
@@ -1021,7 +1052,9 @@ html.nolayout, html.nolayout body, body.nolayout {
     display: flex;
     justify-content: center;
     gap: 8px;
-    margin: 6px 0;
+    /* Larger margins so boxes have breathing room from section dividers
+       above and below — replaces the gap that <br>s used to provide. */
+    margin: 4px 0 18px;
 }
 
 .aur-box {
